@@ -5,22 +5,22 @@ let waitingForSecondNumber = false;
 let currentOperator = "";
 
 // Получаем элемент дисплея по его ID
-const display = document.getElementById(""); // 1. Вставьте идентификатор
+const display = document.getElementById("display"); // 1. Вставьте идентификатор
 
 // Получаем все элементы с классом "number" (кнопки с цифрами)
-const numbers = document.querySelectorAll("."); // 2. Вставьте указание на нужный класс
+const numbers = document.querySelectorAll(".number"); // 2. Вставьте указание на нужный класс
 
 // Получаем все элементы с классом "operator" (кнопки с операторами)
-const operators = document.querySelectorAll("."); // 3. Вставьте указание на нужный класс
+const operators = document.querySelectorAll(".operator"); // 3. Вставьте указание на нужный класс
 
 // Получаем элемент кнопки "=" по его ID
-const equalOperator = document.getElementById(""); // 4. Вставьте идентификатор
+const equalOperator = document.getElementById("equal"); // 4. Вставьте идентификатор
 
 // Получаем элемент кнопки "C" (очистка) по его классу
-const clearButton = document.querySelector("."); // 5. Вставьте указание на нужный класс
+const clearButton = document.querySelector(".clear"); // 5. Вставьте указание на нужный класс
 
 // Добавляем обработчик события "click" на каждую кнопку с цифрой
-numbers.forEach((/*Название переменной, подсказка в следующей строке кода*/) => { // 6. Вставьте переменную
+numbers.forEach((button) => { // 6. Вставьте переменную
   button.addEventListener("click", () => {
     // Вызываем функцию appendNumber с текстом кнопки
     appendNumber(button.innerText);
@@ -46,7 +46,7 @@ function appendNumber(number) {
 }
 
 // Добавляем обработчик события "click" на каждую кнопку с оператором
-operators.forEach((/*Название переменной, подсказка в следующей строке кода*/) => { // 7. Вставьте переменную
+operators.forEach((operator) => { // 7. Вставьте переменную
   operator.addEventListener("click", () => {
     // Если первое и второе числа уже введены, выполняем вычисление
     if (firstNumber !== "" && secondNumber !== "") {
@@ -78,7 +78,7 @@ equalOperator.addEventListener("click", () => {
 });
 
 // Функция для выполнения вычислений
-function /*Название функции, производящей вычисление*/ { // 8. Вставьте название функции
+function calculate() { // 8. Вставьте название функции
   let result;
   // Преобразуем первое и второе числа в числа с плавающей точкой
   const num1 = parseFloat(firstNumber);
