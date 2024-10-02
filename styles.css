@@ -1,0 +1,126 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.calculator {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+.calculator input {
+  width: 100%;
+  padding: 10px;
+  margin: 15px 0;
+  box-sizing: border-box;
+  font-size: 20px;
+  text-align: right;
+  outline: none;
+  border: 3px solid #007bff;
+  border-radius: 8px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas:
+    "seven eight nine divide"
+    "four five six multiply"
+    "one two three subtract"
+    "zero dot clear add"
+    "equal equal equal equal";
+  gap: 5px;
+}
+
+.buttons button {
+  padding: 20px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  background-color: #0056b3;
+}
+
+.buttons button.operator {
+  background-color: #ff9500;
+}
+
+.buttons button.operator:hover {
+  background-color: #cc7700;
+}
+
+.buttons button.clear {
+  background-color: #ff3b30;
+}
+
+.buttons button.clear:hover {
+  background-color: #cc3026;
+}
+
+/* Определяем области для каждой кнопки */
+.buttons .seven {
+  grid-area: seven;
+}
+.buttons .eight {
+  grid-area: eight;
+}
+.buttons .nine {
+  grid-area: nine;
+}
+.buttons .divide {
+  grid-area: divide;
+}
+.buttons .four {
+  grid-area: four;
+}
+.buttons .five {
+  grid-area: five;
+}
+.buttons .six {
+  grid-area: six;
+}
+.buttons .multiply {
+  grid-area: multiply;
+}
+.buttons .one {
+  grid-area: one;
+}
+.buttons .two {
+  grid-area: two;
+}
+.buttons .three {
+  grid-area: three;
+}
+.buttons .subtract {
+  grid-area: subtract;
+}
+.buttons .zero {
+  grid-area: zero;
+}
+.buttons .dot {
+  grid-area: dot;
+}
+.buttons .clear {
+  grid-area: clear;
+}
+.buttons .add {
+  grid-area: add;
+}
+.buttons .equal {
+  grid-area: equal;
+}
