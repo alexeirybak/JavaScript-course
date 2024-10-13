@@ -30,7 +30,6 @@ body {
 textarea.input {
   width: 400px;
   height: 100px;
-  resize: vertical;
 }
 
 .friends {
