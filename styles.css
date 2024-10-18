@@ -29,10 +29,6 @@ h1 {
   font-size: 24px;
 }
 
-h2 {
-  color: green;
-}
-
 h3 {
   color: green;
   font-size: 16px;
@@ -66,10 +62,6 @@ button:hover {
   font-size: 16px;
   margin-bottom: 10px;
   text-align: center;
-}
-
-.hidden {
-  display: none;
 }
 
 #success-message,
