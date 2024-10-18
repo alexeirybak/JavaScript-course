@@ -64,10 +64,6 @@ button:hover {
   text-align: center;
 }
 
-.hidden {
-  display: none;
-}
-
 #success-message,
 #welcome-message {
   margin-top: 20px;
