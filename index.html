@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Авторизация</h1>
+      <div>
+        <input type="text" id="login" placeholder="Введите логин или email" />
+        <div id="login-error" class="error"></div>
+      </div>
+      <div>
+        <input type="password" id="password" placeholder="Введите пароль" />
+        <div id="password-error" class="error"></div>
+      </div>
+      <button id="login-button">Войти</button>
+      <div id="welcome-message" style="display: none">
+        <h2>Привет, <span id="welcome-username"></span>, давно не виделись!</h2>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
