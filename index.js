@@ -19,6 +19,7 @@ function startUpload() {
       clearInterval(intervalId); // Останавливаем интервал
       console.log("Загрузка файла успешно завершена");
 
+      // Строки 24-39 выделяем в функцию uploadCompleted, которую пробрасываем как параметр в функцию startUpload и вызываем callback'ом здесь, на этой строке
       // Имитация обработки файла
       setTimeout(() => {
         console.log("Файл обрабатывается...");
