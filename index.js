@@ -1,26 +1,25 @@
-function addNotification(message) {
-  const notificationsDiv = document.getElementById("notifications");
-  notificationsDiv.textContent = message;
-}
-
 function uploadCompleted() {
-  addNotification("Загрузка файла успешно завершена");
-
-  addNotification("Файл обрабатывается...");
   setTimeout(() => {
-    addNotification("Файл обработан");
-    addNotification("Сохранение файла...");
-    
+    addNotification("Файл обрабатывается...");
+
     setTimeout(() => {
-      addNotification("Файл успешно сохранен и готов к использованию");
-    }, 2000);
-  }, 2000);
+      addNotification("Файл обработан");
+
+      setTimeout(() => {
+        addNotification("Сохранение файла...");
+
+        setTimeout(() => {
+          addNotification("Файл успешно сохранен и готов к использованию");
+        }, 2000); // Имитация задержки сохранения файла
+      }, 1000); // Задержка перед сохранением файла
+    }, 1000); // Задержка перед обработкой файла
+  }, 1000); // Задержка перед обработкой файла
 }
 
 function startUpload(callback) {
   addNotification("Файл загружается...");
 
-  document.getElementById("progressBar").style.display = "block";
+  document.getElementById("progressInfo").style.display = "block";
 
   let progress = 0;
 
@@ -39,16 +38,20 @@ function startUpload(callback) {
 
     if (progress >= 100) {
       clearInterval(intervalId);
-      addNotification("Загрузка файла завершена");
+      addNotification("Загрузка файла успешно завершена");
 
-      document.getElementById("progressBar").style.display = "none";
-      document.getElementById("progressText").style.display = "none";
+      document.getElementById("progressInfo").style.display = "none";
 
       if (callback) {
         callback();
       }
     }
   }, 1000);
+}
+
+function addNotification(message) {
+  const notificationsDiv = document.getElementById("notifications");
+  notificationsDiv.textContent = message;
 }
 
 startUpload(uploadCompleted);
