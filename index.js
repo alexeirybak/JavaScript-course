@@ -1,10 +1,8 @@
-// 1. Получаем элементы DOM для отображения времени
 const daysElement = document.getElementById("days");
 const hoursElement = document.getElementById("hours");
 const minutesElement = document.getElementById("minutes");
 const secondsElement = document.getElementById("seconds");
 
-// 5. Создаем массив месяцев, чтобы вводимый пользователем месяц преобразовать в числовой формат
 const monthNames = [
   "январь",
   "февраль",
