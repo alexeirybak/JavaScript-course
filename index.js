@@ -59,7 +59,8 @@ const year = prompt("Введите год").trim();
 const month = prompt('Введите месяц (например, "Январь", "Февраль" и т.д.')
   .toLowerCase()
   .trim();
-const day = prompt("Введите число месяца");
+// В уроке забыл добавить trim()
+const day = prompt("Введите число месяца").trim();
 const time = prompt("Введите время в формате ЧЧ:ММ").trim();
 
 if (year && month && day && time) {
