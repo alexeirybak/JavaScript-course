@@ -1,0 +1,152 @@
+// Сортировка массивов из строк:
+const listFruits = ['Груша', 'Апельсин', 'Помело', 'Банан', 'Яблоко'];
+listFruits.sort();
+console.log(listFruits);
+
+// Сортировка массивов из чисел:
+const listNumbers = [10, 2, 23, 5, 100];
+listNumbers.sort((a, b) => a - b);
+console.log(listNumbers); 
+
+// АНАЛОГ ФУНКЦИИ sort(). Пример сортировки массива из строк
+// в алгоритме сортировки выбором, нам нужно для начала сравнить элемент с нулевым индексом и все остальные,
+// если найдется элемент меньше, того который находится под нулевым индексом, то поменять местами, после чего перейти к элементу с первым индексом, и проделать всё то же, но не трогая элемент с нулевым индексом и т.д.
+function sorting(arr, compareFunction) {
+  // запускаем первый цикл
+  for (let i = 0; i < arr.length; i++) {
+    // запускаем второй цикл, в котором будем сравнивать arr[i] с каждым следующим элементом
+    for (let j = i + 1; j < arr.length; j++) {
+      const condition = compareFunction // если этот параметр не будет передан, то здесь будет undefined, т. е. ложь (false)
+        ? compareFunction(arr[i], arr[j]) > 0 
+        : arr[i].toString() > arr[j].toString(); // условие по умолчанию, когда compareFunction не передан в функцию sorting
+      // если arr[i] окажется больше какого-то из элементов, то меняем их местами, для этого вводим вспомогательную переменную temp (метод "пузырька"). Condition будет true во всех случаях, когда arr[i].toString() > arr[j].toString() (это если не передана compareFunction);
+      if (condition) {
+        let temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+      }
+    }
+  }
+  return arr;
+}
+
+const listFruits = ["Груша", "Апельсин", "Помело", "Банан", "Яблоко"];
+
+console.log(sorting(listFruits)); 
+
+// АНАЛОГ ФУНКЦИИ sort(). Пример сортировки массива из чисел
+// Создается функция compareFunction, которая принимает два аргумента a и b. Функция возвращает разницу между a и b. Это используется для сравнения чисел:
+// Если a больше b, результат будет положительным.
+// Если a меньше b, результат будет отрицательным.
+// Если a равно b, результат будет равен нулю.
+function compareNum(a, b) {
+  return a - b;
+}
+
+function sorting(arr, compareFunction) {
+  // запускаем первый цикл
+  for (let i = 0; i < arr.length; i++) {
+    // запускаем второй цикл, в котором будем сравнивать arr[i] с каждым следующим элементом
+    for (let j = i + 1; j < arr.length; j++) {
+      const condition = compareFunction // если этот параметр не будет передан, то здесь будет undefined, т. е. ложь (false)
+        ? compareFunction(arr[i], arr[j]) > 0 // Поскольку теперь compareFunction передана, истинность или ложность condition будет определяться ею, отчего будет зависеть переставлять местами элементы массива или нет.
+        : arr[i].toString() > arr[j].toString(); // При переданной compareFunction этот участок кода не участвует в алгоритме
+      // если arr[i] окажется больше какого-то из элементов, то меняем их местами (метод "пузырька").
+      if (condition) {
+        let temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+      }
+    }
+  }
+  return arr;
+}
+
+const listNumbers = [10, 2, 23, 5, 100];
+listNumbers.sort(compareNum); // передаем в качестве параметра наш callback
+console.log(listNumbers);
+
+// АНАЛОГ ФУНКЦИИ sort(). Пример сортировки коллекций
+
+const listUsers = [
+  { name: "Anna", age: 31 },
+  { name: "Vasilii", age: 25 },
+  { name: "Dmitrii", age: 9 },
+  { name: "Inga", age: 51 },
+  { name: "Nikolai", age: 16 },
+];
+
+// сравниваем объекты со свойствами name и age: {name: 'Ivan', age: 23}
+// При сравнении объектов важно определиться, по какому свойству мы будем их сравнивать,
+// Давайте в нашем примере сравним по имени (name)
+function compareUsers(a, b) {
+  if (a.name > b.name) return 1;
+  if (a.name < b.name) return -1;
+  return 0;
+}
+
+function sorting(arr, compareFunction) {
+  // запускаем первый цикл
+  for (let i = 0; i < arr.length; i++) {
+    // запускаем второй цикл, в котором будем сравнивать arr[i] с каждым следующим элементом
+    for (let j = i + 1; j < arr.length; j++) {
+      const condition = compareFunction // если этот параметр не будет передан, то здесь будет undefined, т. е. ложь (false)
+        ? compareFunction(arr[i], arr[j]) > 0 // Поскольку теперь compareFunction передана, истинность или ложность condition будет определяться ею, отчего будет зависеть переставлять местами элементы массива или нет.
+        : arr[i].toString() > arr[j].toString(); // При переданной compareFunction этот участок кода не участвует в алгоритме
+      // если arr[i] окажется больше следующего элемента, то меняем их местами (метод "пузырька"). 
+      if (condition) {
+        let temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+      }
+    }
+  }
+  return arr;
+}
+
+listUsers.sort(compareUsers); // передаем в качестве параметра наш callback, но уже для User
+console.log(listUsers);
+
+// Callback для сортировки символов, которые не входят в ASCII:
+function compareWords(a, b) {
+  if (a > b) return 1;
+  if (a < b) return -1;
+  return 0;
+}
+
+const words = ["réservé", "premier", "communiqué", "café", "adieu", "éclair"];
+
+words.sort();
+console.log(words);
+
+// Callback для сортировки чисел по возрастанию:
+const listNumbers = [10, 2, 23, 5, 100];
+listNumbers.sort((a, b) => a - b);
+// - по убыванию:
+// listNumbers.sort((a, b) => b - a);
+console.log(listNumbers); 
+
+// Callback для сортировки коллекций:
+// function compareFunction(a, b) {
+  if (a.name > b.name) return 1;
+  if (a.name < b.name) return -1;
+  return 0;
+}
+
+const listUsers = [
+  { name: "Anna", age: 31 },
+  { name: "Vasilii", age: 25 },
+  { name: "Dmitrii", age: 9 },
+  { name: "Inga", age: 51 },
+  { name: "Nikolai", age: 16 },
+];
+
+const sortedListUsers = listUsers.sort(compareFunction);
+console.log(sortedListUsers);
+
+
+
+
+
+
+
