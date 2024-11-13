@@ -1,0 +1,141 @@
+const array1 = [1, 2, 3, 4];
+
+const initialValue = 0;
+const sumWithInitial = array1.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  initialValue
+);
+
+console.log(sumWithInitial); // 10
+
+const employees = [
+  { id: 1, name: "Alice", salary: 50000 },
+  { id: 2, name: "Bob", salary: 60000 },
+  { id: 3, name: "Charlie", salary: 55000 },
+  { id: 4, name: "Diana", salary: 70000 },
+  { id: 5, name: "Eve", salary: 45000 },
+];
+
+// Подсчет средней ЗП
+const totalSalary = employees.reduce(
+  (sum, employee) => sum + employee.salary,
+  0
+);
+
+console.log(totalSalary / employees.length); // 56000
+
+// Суммирование зарплат сотрудников, у которых зарплата выше 60000 и выше
+const totalHighSalary = employees.reduce((sum, employee) => {
+  if (employee.salary >= 60000) {
+    return sum + employee.salary;
+  }
+  return sum;
+}, 0);
+console.log(totalHighSalary);
+
+// Поиск максимального числового значения в массиве
+const numbers = [1, 2, 3, 4, 5];
+// В качестве начального значения для accumulator мы передаем -Infinity. Это гарантирует, что любое число в массиве будет больше начального значения.
+const max = numbers.reduce((accumulator, currentValue) => Math.max(accumulator, currentValue), -Infinity);
+
+console.log(max); // 5
+
+// Итерации:
+// Первая итерация:
+// accumulator = -Infinity
+// currentValue = 1
+// Math.max(-Infinity, 1) = 1
+// Новое значение accumulator = 1
+// Вторая итерация:
+// accumulator = 1
+// currentValue = 2
+// Math.max(1, 2) = 2
+// Новое значение accumulator = 2
+// Третья итерация:
+// accumulator = 2
+// currentValue = 3
+// Math.max(2, 3) = 3
+// Новое значение accumulator = 3
+// Четвертая итерация:
+// accumulator = 3
+// currentValue = 4
+// Math.max(3, 4) = 4
+// Новое значение accumulator = 4
+// Пятая итерация:
+// accumulator = 4
+// currentValue = 5
+// Math.max(4, 5) = 5
+// Новое значение accumulator = 5
+
+// const numbers = [1, 2, 3, 4, 5];
+// Мы используем оператор расширения (...) для передачи элементов массива numbers в метод Math.max как отдельных аргументов. Это эквивалентно вызову Math.max(1, 2, 3, 4, 5).
+const max = Math.max(...numbers);
+
+console.log(max); // 5
+
+// Объединение многомерного массива в одномерный
+const arrays = [[1, 2], [3, 4], [5, 6]];
+const flattened = arrays.reduce((accumulator, currentValue) => accumulator.concat(currentValue), []);
+
+console.log(flattened); // [1, 2, 3, 4, 5, 6]
+
+// Подсчет количества вхождений элементов с выводом в форме объекта
+const fruits = ["apple", "banana", "apple", "orange", "banana", "apple"];
+// В качестве начального значения для accumulator мы передаем пустой объект {}.
+const count = fruits.reduce((accumulator, currentValue) => {
+  // Эта функция вызывается для каждого элемента массива. Она принимает два аргумента:
+  // accumulator: Накапливаемое значение, которое изначально является пустым объектом {}.
+  // currentValue: Текущий обрабатываемый элемент массива.
+  // Для каждого элемента массива мы обновляем объект accumulator:
+  // Если ключ currentValue уже существует в объекте accumulator, мы увеличиваем его значение на 1.
+  // Если ключ currentValue не существует, мы создаем его и устанавливаем значение в 1.
+  // Например, для первого элемента 'apple':
+  // accumulator['apple'] не существует, поэтому accumulator['apple'] становится 0 + 1, то есть 1.
+  accumulator[currentValue] = (accumulator[currentValue] || 0) + 1;
+  // После обновления accumulator мы возвращаем его, чтобы он стал новым значением accumulator для следующей итерации.
+  return accumulator;
+}, {});
+// После завершения всех итераций accumulator будет содержать объект с подсчитанными вхождениями каждого фрукта
+console.log(count); // { apple: 3, banana: 2, orange: 1 }
+
+// Преобразование массива в объект
+let people = [
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 30 },
+  { name: "Charlie", age: 35 },
+];
+
+// Эта функция вызывается для каждого элемента массива. Она принимает два аргумента:
+// accumulator: Накапливаемое значение, которое изначально является пустым объектом {}.
+// currentValue: Текущий обрабатываемый элемент массива (объект из массива people).
+const peopleByName = people.reduce((accumulator, currentValue) => {
+  // Для каждого объекта в массиве people мы добавляем свойство в объект accumulator. Ключом этого свойства является значение поля name текущего объекта (currentValue.name), а значением — сам объект (currentValue).
+  accumulator[currentValue.name] = currentValue;
+  //После обновления accumulator мы возвращаем его, чтобы он стал новым значением accumulator для следующей итерации.
+  console.log(accumulator);
+  return accumulator;
+  // В качестве начального значения для accumulator мы передаем пустой объект {}.
+}, {});
+
+console.log(peopleByName);
+/*
+{
+  Alice: { name: 'Alice', age: 25 },
+  Bob: { name: 'Bob', age: 30 },
+  Charlie: { name: 'Charlie', age: 35 }
+}
+*/
+
+let peopleByName = {};
+
+people.forEach((person) => {
+  // Внутри функции обратного вызова мы добавляем свойство в объект peopleByName. Ключом этого свойства является значение поля name текущего объекта (person.name), а значением — сам объект (person).
+  peopleByName[person.name] = person;
+});
+
+console.log(peopleByName);
+
+
+
+
+
