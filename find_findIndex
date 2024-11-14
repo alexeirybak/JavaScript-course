@@ -1,0 +1,93 @@
+const users = [
+  {
+    name: "Рустам",
+    age: 28,
+    city: "Казань",
+    skills: ["HTML", "CSS", "JavaScript", "React", "PHP"],
+  },
+  {
+    name: "Елена",
+    age: 34,
+    city: "Краснодар",
+    skills: ["HTML", "CSS", "JavaScript", "React", "Vue"],
+  },
+  {
+    name: "Роман",
+    age: 22,
+    city: "Тбилиси",
+    skills: ["HTML", "CSS", "JavaScript", "PHP"],
+  },
+  {
+    name: "Анна",
+    age: 45,
+    city: "Минск",
+    skills: ["Python, PHP"],
+  },
+
+// Проверка наличия элемента в массиве с помощью метода includes()
+const user = users[0]; // Рустам
+const hasReactSkill = user.skills.includes("React");
+console.log(`У пользователя ${user.name} есть навык "React": ${hasReactSkill}`);
+
+
+// Проверка наличия подстроки в строке с помощью метода includes()
+const userInfo = `Имя: ${user.name}, Возраст: ${user.age}, Город: ${user.city}`;
+const hasCity = userInfo.includes(user.city);
+console.log(`Информация о пользователе содержит город ${user.city}: ${hasCity}`);
+
+// Найти пользователя, который живет в "Минске"
+const userInMinsk = users.find((user) => user.city === "Минск");
+console.log("Пользователь, который живет в Минске:", userInMinsk);
+
+// Найти пользователя старше 30 лет
+const userOlderThan30 = users.find((user) => user.age > 30);
+console.log("Пользователь старше 30 лет:", userOlderThan30);
+
+// Найти пользователя со скилом Vue"
+const userHasVue = users.find((user) => user.skills.includes("Vue"));
+console.log(userHasVue);
+
+// Пробрасываем в callback параметры index и array
+const userInMinsk = users.find((user, index, array) => {
+  console.log(index, array);
+  return user.city === "Минск";
+});
+console.log("Пользователь, который живет в Минске:", userInMinsk);
+
+// Проверяем работу метода findIndex()
+console.log(users.findIndex((user) => user.skills.includes("Vue")));
+
+// Поиск индекса пользователя по имени
+const indexByName = users.findIndex(user => user.name === "Елена");
+console.log(`Индекс пользователя по имени "Елена": ${indexByName}`);
+
+// Поиск индекса навыка в массиве навыков пользователя
+const user = users[0]; // Рустам
+const skillIndex = user.skills.indexOf("React");
+console.log(`Индекс навыка "React" у пользователя ${user.name}: ${skillIndex}`);
+
+// Поиск индекса пользователя по городу
+const indexByCity = users.findIndex(user => user.city === "Минск");
+console.log(`Индекс пользователя из города "Минск": ${indexByCity}`);
+
+// Поиск индекса навыка, которого нет у пользователя
+const userWithoutSkill = users[2]; // Роман
+const missingSkillIndex = userWithoutSkill.skills.indexOf("Vue");
+console.log(`Индекс навыка "Vue" у пользователя ${userWithoutSkill.name}: ${missingSkillIndex}`);
+
+// Поиск индекса подстроки в строке, созданной из объекта пользователя
+const userInfo = `Имя: ${user1.name}, Возраст: ${user1.age}, Город: ${user1.city}`;
+const index = userInfo1.indexOf("Казань");
+console.log(`Индекс подстроки "Казань" в строке "${userInfo}": ${index}`);
+
+// Пример 2: Поиск индекса подстроки, которой нет в строке
+const user2 = users[1]; // Елена
+const userInfo2 = `Имя: ${user2.name}, Возраст: ${user2.age}, Город: ${user2.city}`;
+const index2 = userInfo2.indexOf("Москва");
+console.log(`Индекс подстроки "Москва" в строке "${userInfo2}": ${index2}`);
+
+// Пример 3: Поиск индекса подстроки с определенного индекса
+const user3 = users[3]; // Анна
+const userInfo3 = `Имя: ${user3.name}, Возраст: ${user3.age}, Город: ${user3.city}`;
+const index3 = userInfo3.indexOf("Минск", 10); // Начинаем поиск с 10-го индекса
+console.log(`Индекс подстроки "Минск" в строке "${userInfo3}" начиная с 10-го индекса: ${index3}`);
