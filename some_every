@@ -1,0 +1,69 @@
+// Проверка, есть ли хотя бы один элемент, больший чем 10
+const numbers = [1, 3, 5, 7, 9, 11];
+const hasNumberGreaterThan10 = numbers.some(number => number > 10);
+console.log(hasNumberGreaterThan10); // true
+
+const users = [
+  {
+    name: "Рустам",
+    age: 28,
+    city: "Казань",
+    skills: ["HTML", "CSS", "JavaScript", "React", "PHP"],
+  },
+  {
+    name: "Елена",
+    age: 34,
+    city: "Краснодар",
+    skills: ["HTML", "CSS", "JavaScript", "React", "Vue"],
+  },
+  {
+    name: "Роман",
+    age: 22,
+    city: "Тбилиси",
+    skills: ["HTML", "CSS", "JavaScript", "PHP"],
+  },
+  {
+    name: "Анна",
+    age: 45,
+    city: "Минск",
+    skills: ["Python, PHP"],
+  },
+];
+
+// Проверка, есть ли user старше 30 лет
+const peopleOlderThan30 = users.some((user) => user.age > 30);
+
+console.log(peopleOlderThan30);
+
+// Проверка, есть ли хотя бы один элемент, содержащий определенную подстроку
+const fruits = ["apple", "banana", "cherry", "date"];
+const hasFruitWithLetterA = fruits.some(fruit => fruit.includes("a"));
+console.log(hasFruitWithLetterA); // true
+
+// Проверка, есть ли хотя бы один элемент, содержащий тот или иной навык
+const peopleHasSkillVue = users.some((user) => user.skills.includes('Vue'));
+
+const peopleHasSkillNodeJS = users.some((user) => user.skills.includes('Node.js'));
+
+console.log(peopleHasSkillVue, peopleHasSkillNodeJS);
+
+// Проверка, что все элементы больше 0
+const numbers = [1, 3, 5, 7, 9, 11];
+const allPositive = numbers.every(number => number > 0);
+console.log(allPositive); // true
+// Проврерка, что все пользователи 18 лет и старше:
+const allUsersAreAdult = users.every((user => user.age >= 18));
+
+console.log(allUsersAreAdult);
+
+// Проверка, что все строки содержат определенную подстроку
+const fruits = ["apple", "banana", "cherry", "date"];
+const allFruitsContainA = fruits.every(fruit => fruit.includes("a"));
+console.log(allFruitsContainA); // false
+
+const allUsersHasSkillJS = users.every((user) => user.skills.includes("JavaScript"));
+
+console.log(allUsersHasSkillJS);
+
+
+
