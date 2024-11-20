@@ -59,7 +59,8 @@ function renderProducts(discountedProducts) {
           product.price !== product.newPrice
             ? `<p class="product-old-price">
           <strong>Старая цена:</strong>
-          <span class="old-price">1800 руб.</span>
+          <!--Не вставил старую цену в уроке ((-->
+          <span class="old-price">${product.price} руб.</span>
         </p>`
             : ""
         }
