@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>Магазин велосипедов и аксессуаров</h1>
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="Поиск по названию" />
+      <button id="search-button">Найти</button>
+    </div>
+    <div id="loader" class="loader"></div>
+    <div id="products-container">
+      <!-- <div class="product">
+        <h2>Горный велосипед 1</h2>
+        <p><strong>Производитель:</strong> Trek</p>
+        <img src="../img/bike.jpg" alt="" />
+        <p class="product-price">
+          <strong>Цена:</strong>
+          <span class="new-price">61200 руб.</span>
+        </p>
+        <p><strong>Цвет:</strong> Черный</p>
+        <p class="product-description">
+          <strong>Описание:</strong> Прочный горный велосипед для бездорожья.
+        </p>
+        <p class="product-size"><strong>Размер:</strong> M</p>
+        <p class="product-weight"><strong>Вес:</strong> 12.5 кг</p>
+      </div>
+      <div class="product">
+        <h2>Велосипедный насос</h2>
+        <p><strong>Производитель:</strong> Topeak</p>
+        <img src="../img/access.jpg" alt="" />
+        <p class="product-price">
+          <strong>Цена:</strong>
+          <span class="new-price">1620 руб.</span>
+        </p>
+        <p class="product-old-price">
+          <strong>Старая цена:</strong>
+          <span class="old-price">1800 руб.</span>
+        </p>
+
+        <p><strong>Цвет:</strong> Черный</p>
+        <p class="product-description">
+          <strong>Описание:</strong> Прочный горный велосипед для бездорожья.
+        </p>
+        <p class="product-weight"><strong>Вес:</strong> 12.5 кг</p>
+      </div>
+      <div class="product">
+        <h2>Горный велосипед 1</h2>
+        <p><strong>Производитель:</strong> Trek</p>
+        <img src="../img/bike.jpg" alt="" />
+        <p class="product-price">
+          <strong>Цена:</strong>
+          <span class="new-price">61200 руб.</span>
+        </p>
+        <p><strong>Цвет:</strong> Черный</p>
+        <p class="product-description">
+          <strong>Описание:</strong> Прочный горный велосипед для бездорожья.
+        </p>
+        <p class="product-size"><strong>Размер:</strong> M</p>
+        <p class="product-weight"><strong>Вес:</strong> 12.5 кг</p>
+      </div>
+      <div class="product">
+        <h2>Велосипедный насос</h2>
+        <p><strong>Производитель:</strong> Topeak</p>
+        <img src="../img/access.jpg" alt="" />
+        <p class="product-price">
+          <strong>Цена:</strong>
+          <span class="new-price">1620 руб.</span>
+        </p>
+        <p class="product-old-price">
+          <strong>Старая цена:</strong>
+          <span class="old-price">1800 руб.</span>
+        </p>
+        <p><strong>Цвет:</strong> Черный</p>
+        <p class="product-description">
+          <strong>Описание:</strong> Прочный горный велосипед для бездорожья.
+        </p>
+
+        <p class="product-weight"><strong>Вес:</strong> 12.5 кг</p>
+      </div>
+      <div class="product">
+        <h2>Горный велосипед 1</h2>
+        <p><strong>Производитель:</strong> Trek</p>
+        <img src="../img/bike.jpg" alt="" />
+        <p class="product-price">
+          <strong>Цена:</strong>
+          <span class="new-price">61200 руб.</span>
+        </p>
+        <p><strong>Цвет:</strong> Черный</p>
+        <p class="product-description">
+          <strong>Описание:</strong> Прочный горный велосипед для бездорожья.
+        </p>
+        <p class="product-size"><strong>Размер:</strong> M</p>
+        <p class="product-weight"><strong>Вес:</strong> 12.5 кг</p>
+      </div>
+      <div class="product">
+        <h2>Велосипедный насос</h2>
+        <p><strong>Производитель:</strong> Topeak</p>
+        <img src="../img/access.jpg" alt="" />
+        <p class="product-price">
+          <strong>Цена:</strong>
+          <span class="new-price">1620 руб.</span>
+        </p>
+        <p class="product-old-price">
+          <strong>Старая цена:</strong>
+          <span class="old-price">1800 руб.</span>
+        </p>
+        <p><strong>Цвет:</strong> Черный</p>
+        <p class="product-description">
+          <strong>Описание:</strong> Прочный горный велосипед для бездорожья.
+        </p>
+        <p class="product-weight"><strong>Вес:</strong> 12.5 кг</p>
+      </div>
+      <div class="product">
+        <h2>Горный велосипед 1</h2>
+        <p><strong>Производитель:</strong> Trek</p>
+        <img src="../img/bike.jpg" alt="" />
+        <p class="product-price">
+          <strong>Цена:</strong>
+          <span class="new-price">61200 руб.</span>
+        </p>
+        <p><strong>Товар закончился</strong></p>
+        <p><strong>Цвет:</strong> Черный</p>
+        <p class="product-description">
+          <strong>Описание:</strong> Прочный горный велосипед для бездорожья.
+        </p>
+        <p class="product-size"><strong>Размер:</strong> M</p>
+        <p class="product-weight"><strong>Вес:</strong> 12.5 кг</p>
+      </div>
+      <div class="product">
+        <h2>Велосипедный насос</h2>
+        <p><strong>Производитель:</strong> Topeak</p>
+        <img src="../img/access.jpg" alt="" />
+        <p class="product-price">
+          <strong>Цена:</strong>
+          <span class="new-price">1620 руб.</span>
+        </p>
+        <p class="product-old-price">
+          <strong>Старая цена:</strong>
+          <span class="old-price">1800 руб.</span>
+        </p>
+        <p><strong>Цвет:</strong> Черный</p>
+        <p class="product-description">
+          <strong>Описание:</strong> Прочный горный велосипед для бездорожья.
+        </p>
+        <p class="product-weight"><strong>Вес:</strong> 12.5 кг</p>
+      </div> -->
+    </div>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
