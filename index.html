@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Example</title>
+  </head>
+  <body>
+    <form id="myForm">
+      <!-- Текстовое поле -->
+      <input type="text" id="username" placeholder="Имя" /><br />
+      <!-- Пароль -->
+      <input
+        type="password"
+        id="password"
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+        title="Пароль должен содержать как минимум одну цифру, одну строчную и одну заглавную букву, и быть не менее 8 символов длиной"
+        placeholder="Пароль"
+        required
+      /><br />
+
+      <!-- Email -->
+      <input type="email" id="email" placeholder="email" required/><br />
+
+      <!-- Tel -->
+      <input
+        type="tel"
+        id="phone"
+        placeholder="Телефон"
+        title="Пожалуйста, введите номер в формате +7XXXXXXXXXX"
+        pattern="\+7\d{10}"
+      /><br />
+
+      <!-- Search -->
+      <input type="search" id="search" placeholder="Найти" /><br />
+
+      <!-- Число -->
+      <input type="number" id="number" placeholder="Возраст" /><br />
+
+      <!-- Date -->
+      <label for="date">Дата:</label>
+      <input type="date" id="date" name="date" required/><br />
+
+      <!-- Чекбокс -->
+      <label for="remember">Запомнить меня:</label>
+      <input type="checkbox" id="remember" /><br />
+
+      <!-- Радиокнопки -->
+      <label>Пол:</label><br />
+
+      <input type="radio" id="male" name="gender" value="male" />
+      <label for="male">Мужчина</label><br />
+      <input type="radio" id="female" name="gender" value="female" />
+      <label for="female">Женщина</label><br />
+
+      <!-- Range -->
+      <label for="volume">Громкость:</label>
+      <input type="range" id="volume" /><br />
+
+      <!-- Color -->
+      <label for="color">Любимый цвет:</label>
+      <input type="color" id="color" value="#a35688" /><br />
+
+      <!-- File -->
+      <label for="file">Загрузите файлы:</label>
+      <input type="file" id="file" multiple accept=".jpg,.jpeg,.png" /><br />
+
+      <!-- Текстовая область -->
+      <label for="comment">Введите текст комментария:</label><br />
+      <textarea id="comment"></textarea><br />
+
+      <!-- Селект -->
+      <label for="country">Страна:</label>
+      <select id="country">
+        <option value="usa">USA</option>
+        <option value="canada">Canada</option>
+        <option value="uk">UK</option></select
+      ><br />
+
+      <!-- Кнопка отправки -->
+      <button type="submit">Отправить</button>
+    </form>
+
+    <script src="script.js"></script>
+  </body>
+</html>
