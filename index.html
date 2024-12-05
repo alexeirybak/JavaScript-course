@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css">
+    <title>Input Focus</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Форма регистрации</h1>
+      <form id="myForm">
+        <input type="text" id="user" name="user" placeholder="Имя" />
+        <input type="email" id="email" name="email" placeholder="email" />
+        <input type="text" id="password" name="password" placeholder="Пароль" />
+        <div id="passwordError" class="error-message">
+          Пароль должен состоять из латинских букв и цифр, а также быть
+          не менее 8 символов
+        </div>
+        <input
+          type="password"
+          id="repeatPassword"
+          name="repeatPassword"
+          placeholder="Подтвердите пароль"
+        />
+        <div id="confirm-password" class="error-message">
+          Пароли не совпадают
+        </div>
+        <select id="year" name="year">
+          <option value="">Дата окончания учебного заведения</option>
+        </select>
+        <button type="submit">Отправить</button>
+        <button type="reset">Очистить форму</button>
+        <div id="requiredFieldsMessage" class="error-message">
+          Проверьте заполнение полей формы
+        </div>
+        <div id="successMessage" class="success-message">
+          Данные успешно отправлены
+        </div>
+      </form>
+    </div>
+ 
+    <script src="script.js"></script>
+  </body>
+</html>

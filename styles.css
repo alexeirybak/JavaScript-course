@@ -1,0 +1,82 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  margin: 30px;
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.container {
+  background-color: #0d0e66;
+  padding: 30px 20px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+}
+h1 {
+  font-size: 22px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  row-gap: 10px;
+}
+input,
+select,
+button {
+  height: 30px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 6px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+select, input::placeholder {
+  font-size: 14px;
+}
+select,
+input {
+  background-color: #9fcee2;
+  outline: none;
+}
+
+select:focus,
+input:focus {
+  background-color: #fff;
+  outline: none;
+}
+button {
+  background-color: #5ca0ff;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+button:hover {
+  background-color: #17488d;
+}
+#repeatPassword {
+  font-size: 24px;
+}
+.error-message {
+  color: red;
+  display: none;
+  text-align: center;
+}
+.password-invalid {
+  border: 2px solid red;
+}
+
+.success-message {
+  display: none;
+  color: green;
+  text-align: center;
+}
