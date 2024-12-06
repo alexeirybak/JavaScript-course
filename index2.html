@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input Focus</title>
+  </head>
+  <style>
+    .container {
+      background-color: lightgreen;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .inner-container {
+      width: 100px;
+      height: 50px;
+      margin-left: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: lightcoral;
+    }
+  </style>
+  <div class="container">
+    <button class="button1">Кнопка 1</button>
+    <div class="inner-container">
+      <button class="button2">Кнопка 2</button>
+    </div>
+  </div>
+  <script>
+    const container = document.querySelector(".container");
+    const innerContainer = document.querySelector(".inner-container");
+    const button1 = document.querySelector(".button1");
+    const button2 = document.querySelector(".button2");
+
+    container.addEventListener("click", (e) => {
+      console.log("Кликнут внешний контейнер");
+    });
+
+    innerContainer.addEventListener("click", (e) => {
+      console.log("Кликнут внутренний контейнер");
+    });
+
+    button1.addEventListener("click", (e) => {
+      console.log("Нажата кнопка 1");
+    });
+
+    button2.addEventListener("click", (e) => {
+      console.log("Нажата кнопка 2");
+      //e.stopPropagation();
+    });
+  </script>
+</html>
