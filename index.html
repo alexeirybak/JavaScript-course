@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Список задач с использованием localStorage</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .task {
+        margin-bottom: 10px;
+      }
+      .task input[type="checkbox"] {
+        margin-right: 10px;
+      }
+      .task button {
+        margin-left: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Список задач</h1>
+    <form id="taskForm">
+      <input
+        type="text"
+        id="taskInput"
+        placeholder="Введите новую задачу"
+        required
+      />
+      <button type="submit">Добавить задачу</button>
+    </form>
+ 
+    <ul id="taskList"></ul>
+ 
+    <script src="script.js">
+      
+    </script>
+  </body>
+</html>
