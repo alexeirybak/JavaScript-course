@@ -1,0 +1,63 @@
+:root {
+  --background-color: #e5e5e5;
+  --text-color: #48484a;
+  --indicate: #e6e6e6;
+  --bg-indicate: #48484a;
+  --left-position: 5px;
+  --rotate-angle: 0deg;
+}
+
+:root[data-theme="dark"] {
+  --background-color: #100e1c; /* Цвет фона для тёмной темы */
+  --text-color: #e6e6e6; /* Цвет текста для тёмной темы */
+  --bg-indicate: #ec6e4d; /* Цвет индикатора для тёмной темы */
+  --left-position: 35px; /* Положение индикатора для тёмной темы */
+  --rotate-angle: 360deg; /* Угол индикатора для тёмной темы */
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 30px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+input {
+  position: absolute;
+  visibility: hidden;
+}
+
+label {
+  position: relative;
+  width: 64px;
+  height: 32px;
+  border: 2px solid #acacac;
+  border-radius: 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.switch-block {
+  position: absolute;
+  left: var(--left-position);
+  transform: rotate(var(--rotate-angle));
+  transition: all 0.5s ease;
+}
+
+.indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  transition: background-color 0.5s ease;
+  color: var(--indicate);
+  background-color: var(--bg-indicate);
+  cursor: pointer;
+}
