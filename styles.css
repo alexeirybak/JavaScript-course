@@ -1,0 +1,151 @@
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #fff;
+}
+
+.player {
+  background: linear-gradient(135deg, #2a5298, #1e3c72);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  width: 320px;
+  position: relative;
+  overflow: hidden;
+}
+
+.controls {
+  padding: 10px 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.controls button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.controls button:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.controls button img {
+  width: 36px;
+  height: 36px;
+  filter: invert(1);
+}
+
+.progress-bar {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.progress-bar span {
+  font-size: 12px;
+  margin: 0 10px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.progress-bar input[type="range"] {
+  flex-grow: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  outline: none;
+  transition: background-color 0.2s;
+}
+
+.volume {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.volume label {
+  font-size: 12px;
+  margin-right: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  img {
+    display: none;
+  }
+}
+
+.volume input[type="range"] {
+  flex-grow: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  outline: none;
+  transition: background-color 0.2s;
+}
+
+.playlist ul {
+  list-style: none;
+  padding: 0;
+  max-height: 150px;
+  overflow-y: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 20px;
+}
+/* Стилизация полосы прокрутки для WebKit (Chrome, Edge, Safari) */
+.playlist ul::-webkit-scrollbar {
+  width: 8px; /* Ширина полосы прокрутки */
+}
+
+.playlist ul::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1); /* Фон трека */
+  border-radius: 4px;
+}
+
+.playlist ul::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3); /* Цвет ползунка */
+  border-radius: 4px;
+}
+
+.playlist ul::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5); /* Цвет ползунка при наведении */
+}
+
+/* Стилизация полосы прокрутки для Firefox */
+.playlist ul {
+  scrollbar-width: thin; /* Ширина полосы прокрутки */
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1); /* Цвет ползунка и трека */
+}
+
+.playlist li {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.playlist li:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.playlist li.active {
+  font-weight: bold;
+  color: #83baf6;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.next-track {
+  transform: scaleX(-1);
+}
+
+#pause {
+  display: none;
+}
