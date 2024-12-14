@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Аудиоплеер</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="player">
+      <audio id="audio"></audio>
+      <div class="controls">
+        <button id="prev">
+          <img src="icons/stack.png" alt="Предыдущий" />
+        </button>
+        <button id="play">
+          <img src="icons/play.png" alt="Проигрывать" />
+        </button>
+        <button id="pause"><img src="icons/pause.png" alt="Пауза" /></button>
+        <button id="stop"><img src="icons/stop.png" alt="Остановить" /></button>
+        <button id="next">
+          <img src="icons/stack.png" alt="Следующий" class="next-track" />
+        </button>
+      </div>
+      <div class="progress-bar">
+        <span id="current-time">0:00</span>
+        <input
+          type="range"
+          id="progress"
+          min="0"
+          max="100"
+          value="0"
+          step="0.1"
+        />
+        <span id="duration">0:00</span>
+      </div>
+      <div class="volume">
+        <label for="volume"
+          ><img src="icons/not-sound.png" />
+          <img src="icons/sound-level-1.png" />
+          <img src="icons/sound-level-2.png" />
+          <img src="icons/sound-level-3.png"
+        /></label>
+        <input
+          type="range"
+          id="volume"
+          min="0"
+          max="1"
+          step="0.1"
+          value="0.5"
+        />
+      </div>
+      <div class="playlist">
+        <ul id="playlist">
+          <!-- Треки будут добавлены динамически -->
+        </ul>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
