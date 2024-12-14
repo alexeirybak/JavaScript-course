@@ -1,0 +1,49 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  font-size: 14px;
+}
+
+#drop {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 200px;
+  border: 2px dashed #ddd;
+  border-radius: 18px;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+#drop.dragover {
+  background-color: #f0f0f0;
+}
+
+#drag {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  width: 150px;
+  height: 100px;
+  box-sizing: border-box;
+  background-color: lightgreen;
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#drag.dragging,
+#drag-img.dragging {
+  transform: scale(0.9);
+  opacity: 0.7;
+}
+
+img {
+  width: 150px;
+}
