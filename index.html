@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag & Drop Test</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Тест с Drag & Drop</h1>
+
+    <!-- Вопросы -->
+    <div class="questions">
+      <div class="drop-zone" id="drop-zone-1">
+        <p>Вопрос 1: Какой оператор используется для строгого сравнения?</p>
+      </div>
+      <div class="drop-zone" id="drop-zone-2">
+        <p>
+          Вопрос 2: Какое значение возвращается, если JavaScript не может
+          преобразовать строку в число?
+        </p>
+      </div>
+    </div>
+
+    <!-- Ответы -->
+    <div class="answers">
+      <div id="drag-item-1" draggable="true">===</div>
+      <div id="drag-item-2" draggable="true">NaN</div>
+      <div id="drag-item-3" draggable="true">undefined</div>
+      <div id="drag-item-4" draggable="true">null</div>
+      <div id="drag-item-5" draggable="true">==</div>
+    </div>
+
+    <!-- Кнопка для проверки ответов -->
+    <button id="check-answers">Проверить ответы</button>
+    <p id="result"></p>
+
+    <script src="script.js"></script>
+  </body>
+</html>

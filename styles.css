@@ -1,0 +1,43 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.questions {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.drop-zone {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  min-height: 50px;
+  background-color: #f9f9f9;
+}
+
+.answers {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Стили для всех элементов, у которых id начинается с "drag-item-" */
+[id^="drag-item-"] {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  cursor: grab;
+  border-radius: 5px;
+}
+
+#result {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+}
