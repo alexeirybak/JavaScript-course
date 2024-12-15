@@ -51,7 +51,7 @@ document.getElementById("check-answers").addEventListener("click", () => {
   dropZones.forEach((zone) => {
     // это коллекция всех элементов с классом drop-zone (зоны для сброса ответов).
     const zoneId = zone.id; // Получаем уникальный идентификатор текущей зоны сброса. Например, если текущая зона имеет id="drop-zone-1", то zoneId будет равен "drop-zone-1".
-    const droppedItem = zone.querySelector('[id^="drag-item-"]'); // Ищем внутри текущей зоны сброса элемент с классом drag-item (это элемент, который был сброшен в зону).
+    const droppedItem = zone.querySelector('[id^="drag-item-"]'); // Ищем внутри текущей зоны сброса элемент с "drag-item-" (это элемент, который был сброшен в зону).
     console.log(zoneId);
     console.log(droppedItem.id);
     console.log(correctAnswers[zoneId]);
