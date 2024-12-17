@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag & Drop Fill-in-the-Blanks</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Перетащите ответ в пустое поле строки</h1>
+    <div class="question">
+      <div class="sentence">
+        Зимой и летом одним цветом:
+        <div class="blank" id="blank-1"></div>
+      </div>
+ 
+      <div class="options">
+        <div class="drag-item" id="drag-item-1" draggable="true">ёлка</div>
+        <div class="drag-item" id="drag-item-2" draggable="true">береза</div>
+        <div class="drag-item" id="drag-item-3" draggable="true">осина</div>
+      </div>
+    </div>
+ 
+    <div class="question">
+      <div class="sentence">
+        Сорок одёжек - и все без застежек:
+        <div class="blank" id="blank-2"></div>
+      </div>
+ 
+      <div class="options">
+        <div class="drag-item" id="drag-item-4" draggable="true">свекла</div>
+        <div class="drag-item" id="drag-item-5" draggable="true">лук</div>
+        <div class="drag-item" id="drag-item-6" draggable="true">морковь</div>
+      </div>
+    </div>
+ 
+    <button id="check-answers">Проверить</button>
+    <p id="result"></p>
+ 
+    <script src="script.js"></script>
+  </body>
+</html>
