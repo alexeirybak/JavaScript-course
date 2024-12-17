@@ -1,7 +1,7 @@
 const answers = document.querySelectorAll(".answer");
 const resultElement = document.querySelector(".result");
 let selectedAnswer = null;
-
+  
 answers.forEach((answer) => {
   answer.addEventListener("click", () => {
     if (selectedAnswer) {
@@ -11,10 +11,10 @@ answers.forEach((answer) => {
     answer.style.backgroundColor = "#007bff";
     answer.style.color = "#fff";
 
-    if (answer.textContent === "12") {
-      result.textContent = "Правильно!";
+    if (answer.textContent === 12) {
+      resultElement.textContent = "Правильно!";
     } else {
-      result.textContent = "Неправильно!";
+      resultElement.textContent = "Неправильно!";
     }
 
     selectedAnswer = answer;
