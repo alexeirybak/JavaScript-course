@@ -11,7 +11,7 @@ answers.forEach((answer) => {
     answer.style.backgroundColor = "#007bff";
     answer.style.color = "#fff";
 
-    if (answer.textContent === 12) {
+    if (answer.textContent === '12') {
       resultElement.textContent = "Правильно!";
     } else {
       resultElement.textContent = "Неправильно!";
