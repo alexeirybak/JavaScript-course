@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-upload {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 16px;
+}
+
+.upload-zone__dragover {
+  background-color: #593273;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 300px;
+  padding: 16px;
+  border-radius: 10px;
+  border: 2px dashed #ddd;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.upload-zone__dragover:hover,
+.upload-zone__dragover.active {
+  opacity: 0.8;
+}
+
+.upload-loader__image {
+  width: 100px;
+}
+
+.upload-zone__text {
+  text-align: center;
+}
+
+.form-upload__label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-upload__title {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Arial, sans-serif;
+}
+
+.form-upload__label {
+  margin-top: 20px;
+  padding: 8px 15px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-upload__label:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+.form-upload__title {
+  font-size: 16px;
+}
+
+.form-upload__input {
+  display: none;
+}
+
+/* Стили для блока с информацией о файлах */
+.file-info {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  display: none;
+}
+
+.file-info h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.file-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.file-info li {
+  margin: 5px 0;
+}
+
+.file-info li strong {
+  font-weight: bold;
+}
+
+/* Анимация мигания */
+@keyframes blink {
+  0%,
+  100% {
+    background-color: #3dbf60;
+  }
+  50% {
+    background-color: #02821a; /* Цвет мигания */
+  }
+}
+
+.files-sent {
+  animation: blink 1s ease-in-out 3;
+  display: none;
+}
+
+/* Стили для кнопки "Отправить" */
+button,
+.files-sent {
+  width: 200px;
+  margin-top: 8px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+  font-weight: 500;
+  text-align: center;
+  background-color: #3dbf60;
+  color: #fff;
+}
+
+button {
+  background-color: #c4c4c4;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: none;
+}
+
+button:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
