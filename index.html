@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Загрузка Drag-and-Drop</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div id="file-loader" class="upload-zone">
+      <form class="form-upload" id="upload-form">
+        <!-- область для перетаскивания файлов -->
+        <div class="upload-zone__dragover">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1"
+            viewBox="0 0 24 24"
+            class="upload-loader__image"
+          >
+            <path
+              d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242M12 12v9"
+            ></path>
+            <path d="m16 16-4-4-4 4"></path>
+          </svg>
+          <p class="upload-zone__text">Перетащите файлы сюда</p>
+          <label class="form-upload__label" for="upload-form__file">
+            <span class="form-upload__title">Или выберите</span>
+            <input
+              class="form-upload__input"
+              id="upload-form__file"
+              type="file"
+              name="file_name"
+              multiple
+              
+            />
+          </label>
+        </div>
+
+        <!-- Блок для отображения информации о файлах -->
+        <div id="file-info" class="file-info">
+          <ul id="file-list"></ul>
+        </div>
+        <div id="files-sent" class="files-sent">Файлы отправлены</div>
+
+        <button type="submit" class="form-upload__submit">Отправить</button>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
