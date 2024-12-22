@@ -42,19 +42,3 @@ function drop(e) {
 
   targetBlank.append(draggedItem);
 }
-
-checkButton.addEventListener("click", () => {
-  let isCorrect = true;
-  blanks.forEach((blank, index) => {
-    const puzzle = blank.firstChild;
-    if (!puzzle || puzzle.id !== `item-${index + 1}`) {
-      isCorrect = false;
-    }
-  });
-
-  if (isCorrect) {
-    window.location.href = "site.html";
-  } else {
-    result.textContent = "Пазл собран неправильно. Попробуйте еще раз";
-  }
-});
