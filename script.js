@@ -33,7 +33,7 @@ function drop(e) {
   const draggedItem = document.getElementById(id);
 
   const targetBlank = e.target.closest(".blank");
-  if (!e.targetBlank) return;
+  if (!targetBlank) return;
 
   const existingPuzzle = targetBlank.querySelector(".drag-item");
   if (existingPuzzle) {
