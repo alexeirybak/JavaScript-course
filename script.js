@@ -44,7 +44,8 @@ dropFileZone.addEventListener("drop", (e) => {
   // удаляем класс активности при сбросе файлов
   dropFileZone.classList.remove("active");
   submitButton.style.display = "block";
-  filesSentElement.style.display = "none";
+ // Переместил скрытие элемента в функцию saveFilesToInput
+  // filesSentElement.style.display = "none";
   // получаем файлы из события
   console.log(e.dataTransfer.files);
   const files = e.dataTransfer.files;
@@ -59,6 +60,7 @@ dropFileZone.addEventListener("drop", (e) => {
  
 // функция для сохранения файлов в инпут
 function saveFilesToInput(files) {
+  filesSentElement.style.display = "none";
   console.log(uploadInput.files);
   // Создаём временный массив для хранения всех файлов
   const allFiles = Array.from(uploadInput.files); // Получаем текущие файлы
