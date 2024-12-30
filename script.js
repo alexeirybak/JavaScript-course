@@ -46,8 +46,8 @@ function renderData(posts) {
     bodyElement.textContent = post.body;
 
     // Добавляем заголовок и текст в элемент поста
-    postElement.appendChild(titleElement);
-    postElement.appendChild(bodyElement);
+    postElement.append(titleElement);
+    postElement.append(bodyElement);
 
     // Добавляем пост в контейнер
     container.appendChild(postElement);
