@@ -9,7 +9,7 @@ async function getData() {
       throw new Error(`Данные не получены. Статус: ${response.status}`);
     }
 
-    const data = response.json();
+    const data = await response.json();
     console.log("Данные получены:", data);
     renderData(data);
   } catch (error) {
