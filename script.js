@@ -54,8 +54,8 @@ const dataPeople = document.querySelectorAll("button");
 dataPeople.forEach((dataPerson) => {
   dataPerson.addEventListener("click", () => {
     const age = dataPerson.dataset.age;
-    const status = dataPerson.dataset.status;
-    const car = dataPerson.dataset.hasCar;
+    const status = dataPerson.dataset.status === "true"; // Преобразуем строку в булево значение
+    const car = dataPerson.dataset.hasCar === "true"; // Преобразуем строку в булево значение
     const position = dataPerson.dataset.position;
 
     moreInfo.innerHTML = "";
