@@ -162,6 +162,7 @@ async function addTodo() {
     }
 
     console.log("Задача добавлена");
+    taskInput.value = ""; // Еще очищаем поле ввода новой задачи
     getData();
   } catch (error) {
     console.error(`Ошибка добавления:`, error.message);
