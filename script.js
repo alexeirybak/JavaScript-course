@@ -3,6 +3,7 @@ import { toggleTodoStatus } from "./API/getStatusTodoApi.js";
 import { deleteTodo } from "./API/deleteTodoApi.js";
 import { updateTodo } from "./API/updateTodoApi.js";
 import { addTodo } from "./API/addTodoApi.js";
+import { updateTaskOrderOnServer } from "./API/updateTasksOrderApi.js";
 
 const container = document.getElementById("posts-container");
 const taskInput = document.getElementById("task-input");
@@ -29,6 +30,7 @@ function renderData(todos) {
   todos.forEach((todo) => {
     const todoElement = document.createElement("div");
     todoElement.classList.add("todo");
+    todoElement.setAttribute("data-id", todo.id);
 
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
@@ -105,6 +107,7 @@ function renderData(todos) {
       updateButton
     );
 
+    addDragAndDropListeners(todoElement, todo);
     container.append(todoElement);
     downloadButton.hidden = true;
     hideLoader();
@@ -151,4 +154,59 @@ function showLoader() {
 
 function hideLoader() {
   overlay.style.display = "none";
+}
+
+function addDragAndDropListeners(todoElement, todo) {
+  todoElement.draggable = true;
+  todoElement.addEventListener("dragstart", (event) => {
+    event.dataTransfer.setData("text/plain", todo.id);
+    event.currentTarget.classList.add("dragging");
+  });
+
+  todoElement.addEventListener("dragover", (event) => {
+    event.preventDefault();
+    const draggable = document.querySelector(".dragging");
+    const overElement = event.currentTarget;
+
+    if (overElement !== draggable) {
+      const rect = overElement.getBoundingClientRect();
+      const offset = event.clientY - rect.top;
+      if (offset < rect.height / 2) {
+        container.insertBefore(draggable, overElement);
+      } else {
+        container.insertBefore(draggable, overElement.nextSibling);
+      }
+    }
+  });
+
+  todoElement.addEventListener("dragend", (event) => {
+    event.currentTarget.classList.remove("dragging");
+
+    updateTaskOrder();
+  });
+}
+
+async function updateTaskOrder() {
+  const todos = [...container.querySelectorAll(".todo")];
+  const updatedOrder = todos.map((todo, index) => {
+    return {
+      id: todo.getAttribute("data-id"),
+      order: index + 1,
+    };
+  });
+
+  try {
+    showLoader();
+    for (const task of updatedOrder) {
+      await updateTaskOrderOnServer(task.id, task.order);
+    }
+
+    console.log("Порядок задач обновлен");
+
+    return true;
+  } catch (error) {
+    console.error(error.message);
+  } finally {
+    hideLoader();
+  }
 }
