@@ -1,30 +1,34 @@
-import { host } from "../script.js";
-export async function deleteCompletedTodos(container) {
+import { host } from "./apiService.js";
+
+export async function deleteCompletedTodos() {
   try {
-    const completedTodos = Array.from(
-      container.querySelectorAll(".todo")
-    ).filter((todoElement) => {
-      const checkbox = todoElement.querySelector('input[type="checkbox"]');
-      return checkbox.checked;
-    });
+    // Получаем все задачи
+    const response = await fetch(host);
+    if (!response.ok) {
+      throw new Error("Не удалось загрузить задачи");
+    }
 
-    for (const todoElement of completedTodos) {
-      const taskId = todoElement.getAttribute("data-id");
+    const todos = await response.json();
 
-      const deleteResponse = await fetch(`${host}/${taskId}`, {
+    // Фильтруем выполненные задачи
+    const completedTodos = todos.filter((todo) => todo.completed);
+
+    // Удаляем каждую выполненную задачу
+    for (const todo of completedTodos) {
+      const deleteResponse = await fetch(`${host}/${todo.id}`, {
         method: "DELETE",
       });
 
       if (!deleteResponse.ok) {
         throw new Error(
-          `Не удалось удалить список выполненных. Статус: ${deleteResponse.status}`
+          `Не удалось удалить задачу с ID ${todo.id}. Статус: ${deleteResponse.status}`
         );
       }
     }
 
     return true;
   } catch (error) {
-    console.error("Ошибка удаления выполенных задач:", error.message);
+    console.error("Ошибка удаления выполненных задач:", error.message);
     throw error;
   }
 }

@@ -1,8 +1,8 @@
-import { host } from "../script.js";
+import { host } from "./apiService.js";
 
 export async function deleteTodo(id) {
   try {
-    const response = await fetch(`${host}/${id}`, {
+    const response = await fetch(`${host1}/${id}`, {
       method: "DELETE",
     });
     if (!response.ok) {

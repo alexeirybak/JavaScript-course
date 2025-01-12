@@ -1,4 +1,4 @@
-import { host } from "../script.js";
+import { host } from "./apiService.js";
 
 export async function updateTodo(id, newText) {
   try {
