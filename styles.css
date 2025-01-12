@@ -93,7 +93,8 @@ body {
 }
 
 /* Кнопки */
-.button-download {
+.button-download,
+#delete-completed-button {
   padding: 12px 24px;
   border: none;
   border-radius: 8px;
@@ -104,12 +105,23 @@ body {
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+#delete-completed-button {
+  background-color: #ed3846;
+  display: none;
+}
+
+#delete-completed-button:hover {
+  background-color: #de1829;
+  transform: translateY(-2px);
+}
+
 .button-download:hover {
   background-color: #0056b3;
   transform: translateY(-2px);
 }
 
-.button-download:active {
+.button-download:active,
+#delete-completed-button:active {
   transform: translateY(0);
 }
 

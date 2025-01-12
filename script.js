@@ -4,12 +4,16 @@ import { deleteTodo } from "./API/deleteTodoApi.js";
 import { updateTodo } from "./API/updateTodoApi.js";
 import { addTodo } from "./API/addTodoApi.js";
 import { updateTaskOrderOnServer } from "./API/updateTasksOrderApi.js";
+import { deleteCompletedTodos } from "./API/deleteCompletedTodosApi.js";
 
 const container = document.getElementById("posts-container");
 const taskInput = document.getElementById("task-input");
 const addButton = document.getElementById("add-button");
 const downloadButton = document.querySelector(".button-download");
 const overlay = document.getElementById("overlay");
+const deleteCompletedButton = document.getElementById(
+  "delete-completed-button"
+);
 
 export const host = "https://677e662d94bde1c1252bc48a.mockapi.io/api/v1/todos";
 
@@ -17,9 +21,15 @@ async function loadData() {
   try {
     showLoader();
     const todos = await getTodos();
+
     renderData(todos);
   } catch (error) {
     console.error(error.message);
+    if (error.message === "Задач нет") {
+      showError("Задач нет");
+    } else {
+      showError("Не удалось получить данные");
+    }
   } finally {
     hideLoader();
   }
@@ -27,6 +37,11 @@ async function loadData() {
 
 function renderData(todos) {
   container.innerHTML = "";
+
+  const hasCompletedTodos = todos.some((todo) => todo.completed);
+
+  deleteCompletedButton.style.display = hasCompletedTodos ? "block" : "none";
+
   todos.forEach((todo) => {
     const todoElement = document.createElement("div");
     todoElement.classList.add("todo");
@@ -42,6 +57,7 @@ function renderData(todos) {
         await loadData();
       } catch (error) {
         console.error(error.message);
+        showError("Не удалось изменить статус задачи");
       }
     });
 
@@ -74,6 +90,7 @@ function renderData(todos) {
         await loadData();
       } catch (error) {
         console.error(error.message);
+        showError("Не удалось удалить задачу");
       }
     });
 
@@ -88,13 +105,27 @@ function renderData(todos) {
     updateButton.append(updateIcon);
 
     updateButton.addEventListener("click", async () => {
-      const newText = prompt("Введите новый текст задачи:", todo.text);
+      const { value: newText } = await Swal.fire({
+        title: "Редактирование задачи",
+        input: "text",
+        inputLabel: "Введите текст новой задачи",
+        inputValue: todo.text,
+        showCancelButton: true,
+        confirmButtonText: "Сохранить",
+        cancelButtonText: "Отмена",
+        inputValidator: (value) => {
+          if (!value) {
+            return "Поле не может быть пустым!";
+          }
+        },
+      });
+
       if (newText) {
         try {
           await updateTodo(todo.id, newText);
           await loadData();
         } catch (error) {
-          console.error(error.message);
+          showError("Не удалось обновить задачу");
         }
       }
     });
@@ -134,7 +165,8 @@ async function addNewTodo() {
     taskInput.value = "";
     await loadData();
   } catch (error) {
-    console.error(`Ошибка добавления:`, error.message);
+    console.error(error.message);
+    showError("Не удалось добавить задачу");
   }
 }
 
@@ -147,6 +179,33 @@ taskInput.addEventListener("keydown", (event) => {
 });
 
 downloadButton.addEventListener("click", loadData);
+
+deleteCompletedButton.addEventListener("click", async () => {
+  const { isConfirmed } = await Swal.fire({
+    title: "Вы уверены?",
+    text: "Все выполенные задачи будут удалены!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Да, удалить!",
+    cancelButtonText: "Отменить",
+  });
+
+  console.log(isConfirmed);
+
+  if (!isConfirmed) {
+    return;
+  }
+
+  try {
+    await deleteCompletedTodos(container);
+    await loadData();
+  } catch (error) {
+    console.error(error.message);
+    showError("Не удалось удалить список задач");
+  }
+});
 
 function showLoader() {
   overlay.style.display = "flex";
@@ -206,7 +265,21 @@ async function updateTaskOrder() {
     return true;
   } catch (error) {
     console.error(error.message);
+    showError("Не удалось переместить элемент");
   } finally {
     hideLoader();
   }
+}
+
+function showError(message) {
+  const icon = message === "Задач нет" ? "info" : "error";
+  const title = message === "Задач нет" ? "Информация" : "Ошибка";
+  const text = message === "Задач нет" ? "У Вас нет задач" : message;
+
+  Swal.fire({
+    title,
+    text,
+    icon,
+    showConfirmButton: true,
+  });
 }

@@ -11,6 +11,10 @@ export async function getTodos() {
     }
 
     const data = await response.json();
+
+    if (data.length === 0) {
+      throw new Error("Задач нет");
+    }
     data.sort((a, b) => a.order - b.order);
     console.log("Данные получены:", data);
     return data;
