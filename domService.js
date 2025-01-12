@@ -51,8 +51,8 @@ export const domService = {
 
     const deleteButton = this.createButton(
       "./images/icon-delete.png",
-      "Удалить 11",
-      "Удалить11"
+      "Удалить",
+      "Удалить"
     );
     const updateButton = this.createButton(
       "./images/icon-update.png",
