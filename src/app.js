@@ -1,7 +1,7 @@
 import {
   initDragAndDrop,
   initDeleteCompleted,
-  addNewTodo,
+  initAddTodo,
 } from "./components/index.js";
 
 import {
@@ -9,14 +9,11 @@ import {
   toggleTodoStatus,
   deleteTodo,
   updateTodo,
-  addTodo,
 } from "./API/index.js";
 
 import { showError, showLoader, hideLoader } from "./utils/helpers.js";
 
 export const container = document.getElementById("posts-container");
-export const taskInput = document.getElementById("task-input");
-const addButton = document.getElementById("add-button");
 const downloadButton = document.querySelector(".button-download");
 export const deleteCompletedButton = document.getElementById(
   "delete-completed-button"
@@ -150,14 +147,7 @@ function renderData(todos) {
   });
 }
 
-addButton.addEventListener("click", () => addNewTodo(taskInput));
-
-taskInput.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    addNewTodo(taskInput);
-  }
-});
-
 downloadButton.addEventListener("click", loadData);
 
+initAddTodo();
 initDeleteCompleted();
