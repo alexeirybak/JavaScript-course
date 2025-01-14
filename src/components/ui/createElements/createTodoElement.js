@@ -11,18 +11,12 @@ export function createTodoElement(todo, container) {
   todoElement.setAttribute("data-id", todo.id);
 
   const checkbox = createCheckbox(todo);
-  const textElement = createText(todo);
+  const updateButton = createUpdateButton(todo);
+  const textElement = createText(todo, updateButton);
   const timeElement = createTime(todo);
   const deleteButton = createDeleteButton(todo);
-  const updateButton = createUpdateButton(todo);
 
-  todoElement.append(
-    checkbox,
-    textElement,
-    timeElement,
-    deleteButton,
-    updateButton
-  );
+  todoElement.append(checkbox, textElement, timeElement, deleteButton);
 
   initDragAndDrop(todoElement, todo, container);
   return todoElement;

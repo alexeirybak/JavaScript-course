@@ -153,6 +153,17 @@ body {
   color: #333;
 }
 
+.text-element {
+  font-size: 18px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 /* Чекбокс */
 .todo input[type="checkbox"] {
   margin-right: 12px;
@@ -166,7 +177,7 @@ body {
   border: none;
   margin-right: 8px;
   padding: 8px 16px;
-  background-color: #fff;
+  background-color: #f0f0f0;
   cursor: pointer;
   transition: all 0.3s ease;
 }

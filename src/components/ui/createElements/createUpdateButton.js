@@ -8,6 +8,7 @@ export function createUpdateButton(todo) {
   updateIcon.src = "./assets/icons/icon-update.png";
   updateIcon.alt = "Изменить";
   updateIcon.title = "Изменить";
+  updateIcon.width = 24;
 
   updateButton.append(updateIcon);
 
