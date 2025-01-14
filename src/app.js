@@ -1,4 +1,8 @@
-import { initDragAndDrop, initDeleteCompleted } from "./components/index.js";
+import {
+  initDragAndDrop,
+  initDeleteCompleted,
+  addNewTodo,
+} from "./components/index.js";
 
 import {
   getTodos,
@@ -6,13 +10,12 @@ import {
   deleteTodo,
   updateTodo,
   addTodo,
-  deleteCompletedTodos,
 } from "./API/index.js";
 
 import { showError, showLoader, hideLoader } from "./utils/helpers.js";
 
 export const container = document.getElementById("posts-container");
-const taskInput = document.getElementById("task-input");
+export const taskInput = document.getElementById("task-input");
 const addButton = document.getElementById("add-button");
 const downloadButton = document.querySelector(".button-download");
 export const deleteCompletedButton = document.getElementById(
@@ -147,36 +150,11 @@ function renderData(todos) {
   });
 }
 
-async function addNewTodo() {
-  const newTodoText = taskInput.value.trim();
-
-  if (!newTodoText) {
-    alert("Введите текст задачи!");
-    return;
-  }
-
-  const newTodo = {
-    text: newTodoText,
-    createdAt: Date.now(),
-    completed: false,
-  };
-
-  try {
-    await addTodo(newTodo);
-    console.log("Задача добавлена");
-    taskInput.value = "";
-    await loadData();
-  } catch (error) {
-    console.error(error.message);
-    showError("Не удалось добавить задачу");
-  }
-}
-
-addButton.addEventListener("click", addNewTodo);
+addButton.addEventListener("click", () => addNewTodo(taskInput));
 
 taskInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
-    addNewTodo();
+    addNewTodo(taskInput);
   }
 });
 
