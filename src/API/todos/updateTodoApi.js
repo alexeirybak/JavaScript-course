@@ -1,4 +1,5 @@
-import { host } from "../script.js";
+import { host } from "../host.js";
+
 
 export async function updateTodo(id, newText) {
   try {
