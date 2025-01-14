@@ -1,4 +1,4 @@
-import { host } from "../script.js";
+import { host } from "../host.js";
 export async function deleteCompletedTodos(container) {
   try {
     const completedTodos = Array.from(
