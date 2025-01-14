@@ -1,5 +1,5 @@
 import { showError } from "../../utils/helpers.js";
-import { loadData } from "../../app.js";
+import { loadData } from "../index.js";
 import { updateTodo } from "../../API/index.js";
 
 export async function updateTask(todo) {

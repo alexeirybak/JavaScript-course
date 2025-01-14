@@ -1,6 +1,6 @@
 import { showError } from "../../utils/helpers.js";
 import { addTodo } from "../../API/index.js";
-import { loadData } from "../../app.js";
+import { loadData } from "../index.js";
 
 export async function addNewTodo(taskInput) {
   const newTodoText = taskInput.value.trim();
