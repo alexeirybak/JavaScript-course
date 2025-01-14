@@ -2,6 +2,7 @@ import {
   initDragAndDrop,
   initDeleteCompleted,
   initAddTodo,
+  updateTask,
 } from "./components/index.js";
 
 import {
@@ -106,31 +107,7 @@ function renderData(todos) {
 
     updateButton.append(updateIcon);
 
-    updateButton.addEventListener("click", async () => {
-      const { value: newText } = await Swal.fire({
-        title: "Редактирование задачи",
-        input: "text",
-        inputLabel: "Введите текст новой задачи",
-        inputValue: todo.text,
-        showCancelButton: true,
-        confirmButtonText: "Сохранить",
-        cancelButtonText: "Отмена",
-        inputValidator: (value) => {
-          if (!value) {
-            return "Поле не может быть пустым!";
-          }
-        },
-      });
-
-      if (newText) {
-        try {
-          await updateTodo(todo.id, newText);
-          await loadData();
-        } catch (error) {
-          showError("Не удалось обновить задачу");
-        }
-      }
-    });
+    updateButton.addEventListener("click", () => updateTask(todo));
 
     todoElement.append(
       checkbox,
