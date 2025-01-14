@@ -1,20 +1,20 @@
+import { initDragAndDrop } from "./components/index.js";
+
 import {
   getTodos,
   toggleTodoStatus,
   deleteTodo,
   updateTodo,
   addTodo,
-  updateTaskOrderOnServer,
   deleteCompletedTodos,
 } from "./API/index.js";
 
 import { showError, showLoader, hideLoader } from "./utils/helpers.js";
 
-const container = document.getElementById("posts-container");
+export const container = document.getElementById("posts-container");
 const taskInput = document.getElementById("task-input");
 const addButton = document.getElementById("add-button");
 const downloadButton = document.querySelector(".button-download");
-const overlay = document.getElementById("overlay");
 const deleteCompletedButton = document.getElementById(
   "delete-completed-button"
 );
@@ -140,7 +140,7 @@ function renderData(todos) {
       updateButton
     );
 
-    addDragAndDropListeners(todoElement, todo);
+    initDragAndDrop(todoElement, todo, container);
     container.append(todoElement);
     downloadButton.hidden = true;
     hideLoader();
@@ -208,59 +208,3 @@ deleteCompletedButton.addEventListener("click", async () => {
     showError("Не удалось удалить список задач");
   }
 });
-
-function addDragAndDropListeners(todoElement, todo) {
-  todoElement.draggable = true;
-  todoElement.addEventListener("dragstart", (event) => {
-    event.dataTransfer.setData("text/plain", todo.id);
-    event.currentTarget.classList.add("dragging");
-  });
-
-  todoElement.addEventListener("dragover", (event) => {
-    event.preventDefault();
-    const draggable = document.querySelector(".dragging");
-    const overElement = event.currentTarget;
-
-    if (overElement !== draggable) {
-      const rect = overElement.getBoundingClientRect();
-      const offset = event.clientY - rect.top;
-      if (offset < rect.height / 2) {
-        container.insertBefore(draggable, overElement);
-      } else {
-        container.insertBefore(draggable, overElement.nextSibling);
-      }
-    }
-  });
-
-  todoElement.addEventListener("dragend", (event) => {
-    event.currentTarget.classList.remove("dragging");
-
-    updateTaskOrder();
-  });
-}
-
-async function updateTaskOrder() {
-  const todos = [...container.querySelectorAll(".todo")];
-  const updatedOrder = todos.map((todo, index) => {
-    return {
-      id: todo.getAttribute("data-id"),
-      order: index + 1,
-    };
-  });
-
-  try {
-    showLoader();
-    for (const task of updatedOrder) {
-      await updateTaskOrderOnServer(task.id, task.order);
-    }
-
-    console.log("Порядок задач обновлен");
-
-    return true;
-  } catch (error) {
-    console.error(error.message);
-    showError("Не удалось переместить элемент");
-  } finally {
-    hideLoader();
-  }
-}

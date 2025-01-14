@@ -1,3 +1,5 @@
+const overlay = document.getElementById("overlay");
+
 export function showError(message) {
   const icon = message === "Задач нет" ? "info" : "error";
   const title = message === "Задач нет" ? "Информация" : "Ошибка";
