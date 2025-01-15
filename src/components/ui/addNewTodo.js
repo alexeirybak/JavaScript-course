@@ -15,7 +15,7 @@ export async function addNewTodo(taskInput) {
 
   const newTodo = {
     text: newTodoText,
-    created_at: new Date().toISOString(),
+    createdAt: new Date(),
     completed: false,
     order: newOrder, 
   };

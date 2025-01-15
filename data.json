@@ -1,37 +1,26 @@
-[
-  {
-    "text": "Сходить в магазин",
+{
+  "task_1": {
+    "completed": false,
     "createdAt": 1736181171562,
-    "completed": false,
-    "id": "1",
-    "order": 1
+    "order": 1,
+    "text": "Сходить в магазин"
   },
-  {
-    "text": "Приготовить обед",
+  "task_2": {
+    "completed": false,
     "createdAt": 1736181173562,
-    "completed": false,
-    "id": "2",
-    "order": 2
+    "order": 2,
+    "text": "Приготовить обед"
   },
-  {
-    "text": "Помыть посуду",
-    "createdAt": 1736181178562,
+  "task_3": {
     "completed": false,
-    "id": "3",
-    "order": 3
+    "createdAt": 1736181171562,
+    "order": 3,
+    "text": "Помыть окно"
   },
-  {
-    "text": "Сходить на почту",
-    "createdAt": 1736181199562,
+  "task_4": {
     "completed": false,
-    "id": "4",
-    "order": 4
-  },
-  {
-    "text": "Сделать контрольную",
-    "createdAt": 1736181240562,
-    "completed": false,
-    "id": "5",
-    "order": 5
+    "createdAt": 1736181171562,
+    "order": 3,
+    "text": "Помыть машину"
   }
-]
+}

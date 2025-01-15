@@ -1,5 +1,4 @@
 import { SUPABASE_URL } from "../../API/host.js";
-import { SUPABASE_KEY } from "../../API/host.js";
 let accessToken = null;
 
 // Регистрация пользователя

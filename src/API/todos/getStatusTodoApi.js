@@ -1,14 +1,9 @@
-import { host, SUPABASE_KEY } from "../host.js";
+import { host } from "../host.js";
 
 export async function toggleTodoStatus(id, completed) {
   try {
-    const response = await fetch(`${host}?id=eq.${id}`, {
+    const response = await fetch(`${host}/${id}.json`, {
       method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${SUPABASE_KEY}`,
-        apikey: SUPABASE_KEY,
-      },
       body: JSON.stringify({ completed }),
     });
 
