@@ -1,14 +1,9 @@
 import { host } from "../host.js";
-import { SUPABASE_KEY } from "../host.js";
 
 export async function getTodos() {
   try {
-    const response = await fetch(host, {
+    const response = await fetch(`${host}.json`, {
       method: "GET",
-      headers: {
-        Authorization: `Bearer ${SUPABASE_KEY}`,
-        apikey: SUPABASE_KEY,
-      },
     });
 
     if (!response.ok) {
@@ -18,11 +13,21 @@ export async function getTodos() {
     const data = await response.json();
     console.log("Данные получены:", data);
 
-    if (data.length === 0) {
-      throw new Error("Задач нет");
+    // Если данных нет, возвращаем пустой массив
+    if (!data) {
+      return [];
     }
-    data.sort((a, b) => a.order - b.order);
-    return data;
+
+    // Преобразуем объект в массив
+    const todosArray = Object.keys(data).map((key) => ({
+      id: key, // Добавляем id задачи
+      ...data[key], // Копируем остальные свойства задачи
+    }));
+
+    // Сортируем массив по полю order (если оно есть)
+    todosArray.sort((a, b) => (a.order || 0) - (b.order || 0));
+
+    return todosArray;
   } catch (error) {
     console.error(`Ошибка получения данных:`, error.message);
     throw error;

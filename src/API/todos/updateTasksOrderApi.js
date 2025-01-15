@@ -1,14 +1,9 @@
-import { host, SUPABASE_KEY } from "../host.js";
+import { host } from "../host.js";
 
 export async function updateTaskOrderOnServer(taskId, order) {
   try {
-    const response = await fetch(`${host}?id=eq.${taskId}`, {
+    const response = await fetch(`${host}/${taskId}.json`, {
       method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${SUPABASE_KEY}`,
-        apikey: SUPABASE_KEY,
-      },
       body: JSON.stringify({ order }),
     });
 
