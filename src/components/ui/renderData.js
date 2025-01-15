@@ -5,6 +5,7 @@ import { hideLoader } from "../../utils/helpers.js";
 import { createTodoElement } from "./createElements/createTodoElement.js";
 
 export const container = document.getElementById("posts-container");
+
 export const deleteCompletedButton = document.getElementById(
   "delete-completed-button"
 );

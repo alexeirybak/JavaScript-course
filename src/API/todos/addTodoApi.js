@@ -6,8 +6,8 @@ export async function addTodo(newTodo) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "apikey": SUPABASE_KEY,
-        "Authorization": `Bearer ${SUPABASE_KEY}`,
+        apikey: SUPABASE_KEY,
+        Authorization: `Bearer ${SUPABASE_KEY}`,
       },
       body: JSON.stringify(newTodo),
     });
@@ -29,3 +29,4 @@ export async function addTodo(newTodo) {
     throw error;
   }
 }
+

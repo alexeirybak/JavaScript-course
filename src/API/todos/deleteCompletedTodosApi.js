@@ -15,8 +15,8 @@ export async function deleteCompletedTodos(container) {
       const deleteResponse = await fetch(`${host}?id=eq.${taskId}`, {
         method: "DELETE",
         headers: {
-          "Authorization": `Bearer ${SUPABASE_KEY}`,
-          "apikey": SUPABASE_KEY,
+          Authorization: `Bearer ${SUPABASE_KEY}`,
+          apikey: SUPABASE_KEY,
         },
       });
 

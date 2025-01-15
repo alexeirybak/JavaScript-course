@@ -7,7 +7,7 @@ export async function updateTaskOrderOnServer(taskId, order) {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${SUPABASE_KEY}`,
-        "apikey": SUPABASE_KEY,
+        apikey: SUPABASE_KEY,
       },
       body: JSON.stringify({ order }),
     });

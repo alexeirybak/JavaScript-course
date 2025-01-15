@@ -10,3 +10,5 @@ export * from "./ui/addNewTodo.js";
 export * from "./ui/updateTask.js";
 export * from "./ui/renderData.js";
 export * from "./ui/loadData.js";
+
+export * from './authreg/regis.js'

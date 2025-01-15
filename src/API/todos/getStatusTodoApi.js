@@ -6,8 +6,8 @@ export async function toggleTodoStatus(id, completed) {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${SUPABASE_KEY}`,
-        "apikey": SUPABASE_KEY,
+        Authorization: `Bearer ${SUPABASE_KEY}`,
+        apikey: SUPABASE_KEY,
       },
       body: JSON.stringify({ completed }),
     });

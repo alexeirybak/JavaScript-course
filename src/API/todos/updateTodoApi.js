@@ -7,7 +7,7 @@ export async function updateTodo(id, newText) {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${SUPABASE_KEY}`,
-        "apikey": SUPABASE_KEY,
+        apikey: SUPABASE_KEY,
       },
       body: JSON.stringify({ text: newText }),
     });

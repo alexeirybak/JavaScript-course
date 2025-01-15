@@ -5,8 +5,8 @@ export async function deleteTodo(id) {
     const response = await fetch(`${host}?id=eq.${id}`, {
       method: "DELETE",
       headers: {
-        "Authorization": `Bearer ${SUPABASE_KEY}`,
-        "apikey": SUPABASE_KEY,
+        Authorization: `Bearer ${SUPABASE_KEY}`,
+        apikey: SUPABASE_KEY,
       },
     });
     if (!response.ok) {
