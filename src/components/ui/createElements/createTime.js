@@ -1,6 +1,6 @@
 export function createTime(todo) {
   const timeElement = document.createElement("p");
-  timeElement.textContent = new Date(todo.createdAt).toLocaleString("ru-RU", {
+  timeElement.textContent = new Date(todo.created_at).toLocaleString("ru-RU", {
     year: "numeric",
     month: "numeric",
     day: "numeric",

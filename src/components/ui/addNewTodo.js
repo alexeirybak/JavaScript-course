@@ -1,5 +1,5 @@
 import { showError } from "../../utils/helpers.js";
-import { addTodo } from "../../API/index.js";
+import { addTodo, getTodos } from "../../API/index.js";
 import { loadData } from "../index.js";
 
 export async function addNewTodo(taskInput) {
@@ -10,10 +10,14 @@ export async function addNewTodo(taskInput) {
     return;
   }
 
+  const todos = await getTodos();
+  const newOrder = todos.length + 1; 
+
   const newTodo = {
     text: newTodoText,
-    createdAt: Date.now(),
+    created_at: new Date().toISOString(),
     completed: false,
+    order: newOrder, 
   };
 
   try {

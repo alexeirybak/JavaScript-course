@@ -1,4 +1,5 @@
-import { host } from "../host.js";
+import { host, SUPABASE_KEY } from "../host.js";
+
 export async function deleteCompletedTodos(container) {
   try {
     const completedTodos = Array.from(
@@ -11,8 +12,12 @@ export async function deleteCompletedTodos(container) {
     for (const todoElement of completedTodos) {
       const taskId = todoElement.getAttribute("data-id");
 
-      const deleteResponse = await fetch(`${host}/${taskId}`, {
+      const deleteResponse = await fetch(`${host}?id=eq.${taskId}`, {
         method: "DELETE",
+        headers: {
+          "Authorization": `Bearer ${SUPABASE_KEY}`,
+          "apikey": SUPABASE_KEY,
+        },
       });
 
       if (!deleteResponse.ok) {

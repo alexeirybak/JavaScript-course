@@ -15,8 +15,6 @@ export function initDeleteCompleted() {
       cancelButtonText: "Отменить",
     });
 
-    console.log(isConfirmed);
-
     if (!isConfirmed) {
       return;
     }
