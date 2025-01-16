@@ -4,8 +4,15 @@ import { showError, showLoader, hideLoader } from "../../utils/helpers.js";
 
 export async function loadData() {
   try {
+    const userId = localStorage.getItem("userId");
+
+    // Если userId отсутствует, выбрасываем ошибку
+    if (!userId) {
+      throw new Error("Пользователь не авторизован.");
+    }
+
     showLoader();
-    const todos = await getTodos();
+    const todos = await getTodos(userId); // Передаём userId в getTodos
 
     renderData(todos);
   } catch (error) {

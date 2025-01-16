@@ -1,8 +1,18 @@
 import { host } from "../host.js";
+//import { getAuth } from "../../firebaseConfig.js";
 
-export async function getTodos() {
+//const auth = getAuth();
+
+export async function getTodos(userId) {
   try {
-    const response = await fetch(`${host}.json`, {
+    // Получаем токен доступа
+    // const user = auth.currentUser;
+    // if (!user) {
+    //   throw new Error("Пользователь не авторизован.");
+    // }
+
+    // Запрашиваем задачи только для указанного пользователя
+    const response = await fetch(`${host}/${userId}.json`, {
       method: "GET",
     });
 

@@ -2,7 +2,9 @@ import { host } from "../host.js";
 
 export async function updateTaskOrderOnServer(taskId, order) {
   try {
-    const response = await fetch(`${host}/${taskId}.json`, {
+    const userId = localStorage.getItem("userId");
+
+    const response = await fetch(`${host}/${userId}/${taskId}.json`, {
       method: "PATCH",
       body: JSON.stringify({ order }),
     });

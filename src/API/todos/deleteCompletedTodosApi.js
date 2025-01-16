@@ -2,6 +2,8 @@ import { host } from "../host.js";
 
 export async function deleteCompletedTodos(container) {
   try {
+    const userId = localStorage.getItem("userId");
+
     const completedTodos = Array.from(
       container.querySelectorAll(".todo")
     ).filter((todoElement) => {
@@ -12,7 +14,7 @@ export async function deleteCompletedTodos(container) {
     for (const todoElement of completedTodos) {
       const taskId = todoElement.getAttribute("data-id");
 
-      const deleteResponse = await fetch(`${host}/${taskId}.json`, {
+      const deleteResponse = await fetch(`${host}/${userId}/${taskId}.json`, {
         method: "DELETE",
       });
 

@@ -2,7 +2,9 @@ import { host } from "../host.js";
 
 export async function updateTodo(id, newText) {
   try {
-    const response = await fetch(`${host}/${id}.json`, {
+    const userId = localStorage.getItem("userId");
+
+    const response = await fetch(`${host}/${userId}/${id}.json`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

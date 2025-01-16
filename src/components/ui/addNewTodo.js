@@ -10,14 +10,16 @@ export async function addNewTodo(taskInput) {
     return;
   }
 
-  const todos = await getTodos();
-  const newOrder = todos.length + 1; 
+  const userId = localStorage.getItem("userId");
+
+  const todos = await getTodos(userId);
+  const newOrder = todos.length + 1;
 
   const newTodo = {
     text: newTodoText,
-    createdAt: new Date(),
+    createdAt: new Date().toISOString(), // Сохраняем дату в формате ISO
     completed: false,
-    order: newOrder, 
+    order: newOrder,
   };
 
   try {
