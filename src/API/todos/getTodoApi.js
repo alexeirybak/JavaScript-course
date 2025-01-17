@@ -1,19 +1,11 @@
 import { host } from "../host.js";
-//import { getAuth } from "../../firebaseConfig.js";
 
-//const auth = getAuth();
-
-export async function getTodos(userId) {
+export async function getTodos(uid, token) {
   try {
-    // Получаем токен доступа
-    // const user = auth.currentUser;
-    // if (!user) {
-    //   throw new Error("Пользователь не авторизован.");
-    // }
-
-    // Запрашиваем задачи только для указанного пользователя
-    const response = await fetch(`${host}/${userId}.json`, {
-      method: "GET",
+    const response = await fetch(`${host}/${uid}.json?auth=${token}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
 
     if (!response.ok) {
@@ -23,7 +15,6 @@ export async function getTodos(userId) {
     const data = await response.json();
     console.log("Данные получены:", data);
 
-    // Если данных нет, возвращаем пустой массив
     if (!data) {
       return [];
     }
@@ -34,7 +25,6 @@ export async function getTodos(userId) {
       ...data[key], // Копируем остальные свойства задачи
     }));
 
-    // Сортируем массив по полю order (если оно есть)
     todosArray.sort((a, b) => (a.order || 0) - (b.order || 0));
 
     return todosArray;

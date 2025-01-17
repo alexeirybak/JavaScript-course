@@ -1,15 +1,10 @@
+import { loadData } from "../index.js";
 import { getAuth, signInWithEmailAndPassword } from "../../firebaseConfig.js";
 const auth = getAuth();
 
 const signinForm = document.getElementById("signin-form");
 const signupForm = document.getElementById("signup-form");
-const tasksBlock = document.getElementById("posts-container");
-
-// Проверяем, авторизован ли пользователь
-if (localStorage.getItem("isAuthenticated")) {
-  hideAuthForms();
-  showTasksBlock();
-}
+const taskContainer = document.getElementById("task-container");
 
 signinForm.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -26,13 +21,9 @@ signinForm.addEventListener("submit", async (event) => {
     const user = userCredential.user;
     console.log("Пользователь авторизован:", user.uid);
 
-    // Сохраняем состояние авторизации
-    localStorage.setItem("isAuthenticated", true);
-    localStorage.setItem("userId", user.uid); // Сохраняем uid
-
-    // Скрываем формы и показываем задачи
     hideAuthForms();
     showTasksBlock();
+    loadData();
   } catch (error) {
     console.error("Ошибка авторизации:", error.message, error.code);
     alert(`Ошибка авторизации: ${error.message}`);
@@ -47,5 +38,5 @@ function hideAuthForms() {
 
 // Функция для отображения блока с задачами
 function showTasksBlock() {
-  tasksBlock.style.display = "block";
+  taskContainer.style.display = "block";
 }

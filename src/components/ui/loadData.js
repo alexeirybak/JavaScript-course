@@ -2,17 +2,15 @@ import { getTodos } from "../../API/index.js";
 import { renderData } from "../index.js";
 import { showError, showLoader, hideLoader } from "../../utils/helpers.js";
 
+import { getUserInfo } from "../../utils/authHelper.js";
+
 export async function loadData() {
   try {
-    const userId = localStorage.getItem("userId");
-
-    // Если userId отсутствует, выбрасываем ошибку
-    if (!userId) {
-      throw new Error("Пользователь не авторизован.");
-    }
-
     showLoader();
-    const todos = await getTodos(userId); // Передаём userId в getTodos
+
+    const { uid, token } = await getUserInfo(); 
+
+    const todos = await getTodos(uid, token);
 
     renderData(todos);
   } catch (error) {

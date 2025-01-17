@@ -2,6 +2,8 @@ import { deleteTodo } from "../../API/index.js";
 import { loadData } from "../index.js";
 import { showError } from "../../utils/helpers.js";
 
+
+
 export function initDelete(todo, deleteButton) {
   deleteButton.addEventListener("click", async () => {
     try {

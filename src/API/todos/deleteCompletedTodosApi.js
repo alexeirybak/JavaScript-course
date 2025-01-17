@@ -1,8 +1,9 @@
 import { host } from "../host.js";
+import { getUserInfo } from "../../utils/authHelper.js";
 
 export async function deleteCompletedTodos(container) {
   try {
-    const userId = localStorage.getItem("userId");
+    const userId = await getUserId();
 
     const completedTodos = Array.from(
       container.querySelectorAll(".todo")
@@ -27,7 +28,7 @@ export async function deleteCompletedTodos(container) {
 
     return true;
   } catch (error) {
-    console.error("Ошибка удаления выполенных задач:", error.message);
+    console.error("Ошибка удаления выполненных задач:", error.message);
     throw error;
   }
 }

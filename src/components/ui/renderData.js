@@ -1,6 +1,3 @@
-
-
-import { downloadButton } from "../index.js";
 import { hideLoader } from "../../utils/helpers.js";
 import { createTodoElement } from "./createElements/createTodoElement.js";
 
@@ -21,6 +18,5 @@ export function renderData(todos) {
     container.append(todoElement);
   });
 
-  downloadButton.hidden = true;
   hideLoader();
 }
