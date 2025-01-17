@@ -3,8 +3,8 @@ import { host } from "../host.js";
 
 export async function updateTodo(id, newText) {
   try {
-    const response = await fetch(`${host}/${id}`, {
-      method: "PUT",
+    const response = await fetch(`${host}/${id}.json`, {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },

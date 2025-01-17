@@ -11,7 +11,7 @@ export async function deleteCompletedTodos(container) {
     for (const todoElement of completedTodos) {
       const taskId = todoElement.getAttribute("data-id");
 
-      const deleteResponse = await fetch(`${host}/${taskId}`, {
+      const deleteResponse = await fetch(`${host}/${taskId}.json`, {
         method: "DELETE",
       });
 

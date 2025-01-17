@@ -2,7 +2,7 @@ import { host } from "../host.js";
 
 export async function addTodo(newTodo) {
   try {
-    const response = await fetch(`${host}`, {
+    const response = await fetch(`${host}.json`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

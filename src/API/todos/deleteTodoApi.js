@@ -2,7 +2,7 @@ import { host } from "../host.js";
 
 export async function deleteTodo(id) {
   try {
-    const response = await fetch(`${host}/${id}`, {
+    const response = await fetch(`${host}/${id}.json`, {
       method: "DELETE",
     });
     if (!response.ok) {
