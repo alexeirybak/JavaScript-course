@@ -1,9 +1,11 @@
 import { host } from "../host.js";
+import { getUserInfo } from "../../utils/authHelper.js";
 
 export async function addTodo(newTodo) {
   try {
-    const userId = localStorage.getItem("userId");
-    const response = await fetch(`${host}/${userId}.json`, {
+    const { uid, token } = await getUserInfo(); 
+
+    const response = await fetch(`${host}/${uid}.json?auth=${token}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -17,15 +19,10 @@ export async function addTodo(newTodo) {
       throw new Error(`Не удалось добавить задачу. Статус: ${response.status}`);
     }
 
-    // Проверяем, есть ли тело ответа
-    const responseText = await response.text();
-    const responseData = responseText ? JSON.parse(responseText) : null;
-
     console.log("Задача добавлена");
-    return responseData;
+    return true;
   } catch (error) {
     console.error(`Ошибка добавления:`, error.message);
     throw error;
   }
 }
-

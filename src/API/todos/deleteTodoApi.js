@@ -1,9 +1,11 @@
 import { host } from "../host.js";
+import { getUserInfo } from "../../utils/authHelper.js";
 
 export async function deleteTodo(id) {
   try {
-    const userId = localStorage.getItem("userId");
-    const response = await fetch(`${host}/${userId}/${id}.json`, {
+    const { uid, token } = await getUserInfo(); 
+
+    const response = await fetch(`${host}/${uid}/${id}.json?auth=${token}`, {
       method: "DELETE",
     });
     if (!response.ok) {
