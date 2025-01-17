@@ -2,8 +2,8 @@ import { host } from "../host.js";
 
 export async function toggleTodoStatus(id, completed) {
   try {
-    const response = await fetch(`${host}/${id}`, {
-      method: "PUT",
+    const response = await fetch(`${host}/${id}.json`, {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },

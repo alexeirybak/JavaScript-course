@@ -3,8 +3,8 @@ import { host } from "../host.js";
 
 export async function updateTaskOrderOnServer(taskId, order) {
   try {
-    const response = await fetch(`${host}/${taskId}`, {
-      method: "PUT",
+    const response = await fetch(`${host}/${taskId}.json`, {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
