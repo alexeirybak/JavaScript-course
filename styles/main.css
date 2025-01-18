@@ -194,3 +194,63 @@ body {
 .todo {
   transition: all 0.3s;
 }
+/*Стили для форм*/
+.form-container {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  margin: 1rem auto; /* Центрирование формы */
+}
+
+.form-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.form-button {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-button.submit {
+  background-color: #007bff;
+  color: white;
+}
+
+.form-button.submit:hover {
+  background-color: #0056b3;
+}
+
+.form-button.secondary {
+  background-color: #6c757d;
+  color: white;
+  margin-top: 0.5rem;
+}
+
+.form-button.secondary:hover {
+  background-color: #5a6268;
+}

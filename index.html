@@ -12,29 +12,47 @@
       <div id="spinner"></div>
     </div>
 
-    <form id="signup-form">
-      <h2>Регистрация</h2>
-      <input type="email" id="signup-email" placeholder="email" required />
+    <form id="signup-form" class="form-container">
+      <h2 class="form-title">Регистрация</h2>
+      <input
+        type="email"
+        id="signup-email"
+        class="form-input"
+        placeholder="Email"
+        required
+      />
       <input
         type="password"
         id="signup-password"
+        class="form-input"
         placeholder="Пароль"
         required
       />
-      <button type="submit">Зарегистрироваться</button>
-      <button id="signIn" type="button">Войти</button>
+      <button type="submit" class="form-button submit">
+        Зарегистрироваться
+      </button>
+      <button id="signIn" type="button" class="form-button secondary">
+        Войти
+      </button>
     </form>
 
-    <form id="signin-form">
-      <h2>Авторизация</h2>
-      <input type="email" id="signin-email" placeholder="email" required />
+    <form id="signin-form" class="form-container">
+      <h2 class="form-title">Авторизация</h2>
+      <input
+        type="email"
+        id="signin-email"
+        class="form-input"
+        placeholder="Email"
+        required
+      />
       <input
         type="password"
         id="signin-password"
+        class="form-input"
         placeholder="Пароль"
         required
       />
-      <button type="submit">Войти</button>
+      <button type="submit" class="form-button submit">Войти</button>
     </form>
     <div id="task-container">
       <div class="input-block">
