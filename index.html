@@ -22,6 +22,7 @@
         required
       />
       <button type="submit">Зарегистрироваться</button>
+      <button id="signIn" type="button">Войти</button>
     </form>
 
     <form id="signin-form">
@@ -35,19 +36,19 @@
       />
       <button type="submit">Войти</button>
     </form>
-    <div class="input-block">
-      <input type="text" id="task-input" placeholder="Введите задачу" />
-      <button id="add-button">
-        <img src="./assets/icons/icon-add.png" class="icons" />
+    <div id="task-container">
+      <div class="input-block">
+        <input type="text" id="task-input" placeholder="Введите задачу" />
+        <button id="add-button">
+          <img src="./assets/icons/icon-add.png" class="icons" />
+        </button>
+      </div>
+
+      <div id="posts-container"></div>
+      <button id="delete-completed-button">
+        Удалить все выполненные задачи
       </button>
     </div>
-
-    <div>
-      <button id="button" class="button-download">Получить задачи</button>
-    </div>
-
-    <div id="posts-container"></div>
-    <button id="delete-completed-button">Удалить все выполненные задачи</button>
     <script src="./src/app.js" type="module"></script>
   </body>
 </html>

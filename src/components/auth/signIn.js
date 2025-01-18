@@ -1,6 +1,7 @@
 import { auth, signInWithEmailAndPassword } from "../../firebaseConfig.js";
-
+import { loadData } from "../index.js";
 const signinForm = document.getElementById("signin-form");
+const taskContainer = document.getElementById("task-container");
 
 signinForm.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -20,8 +21,19 @@ signinForm.addEventListener("submit", async (event) => {
     console.log("Пользователь авторизован", user.uid);
 
     alert("Авторизация прошла успешно");
+    hideSigninForm();
+    showTasksBlock();
+    loadData();
   } catch (error) {
     console.error("Ошибка авторизации: ", error.message, error.code);
     alert(`Ошибка авторизации: ${error.message}`);
   }
 });
+
+function showTasksBlock() {
+  taskContainer.style.display = "block";
+}
+
+function hideSigninForm() {
+  signinForm.style.display = "none";
+}
