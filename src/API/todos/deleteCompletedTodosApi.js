@@ -1,6 +1,10 @@
 import { host } from "../host.js";
+import { getUserInfo } from "../../utils/authHelper.js";
+
 export async function deleteCompletedTodos(container) {
   try {
+    const { uid, token } = await getUserInfo();
+
     const completedTodos = Array.from(
       container.querySelectorAll(".todo")
     ).filter((todoElement) => {
@@ -11,7 +15,7 @@ export async function deleteCompletedTodos(container) {
     for (const todoElement of completedTodos) {
       const taskId = todoElement.getAttribute("data-id");
 
-      const deleteResponse = await fetch(`${host}/${taskId}.json`, {
+      const deleteResponse = await fetch(`${host}/${uid}/${taskId}.json?auth=${token}`, {
         method: "DELETE",
       });
 
