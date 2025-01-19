@@ -28,11 +28,10 @@ export async function deleteCompletedTodos(container) {
           `Не удалось удалить список выполненных. Статус: ${deleteResponse.status}`
         );
       }
+       todoElement.remove();
     }
     //Убираем loadData, т.к. нет необходимости каждый раз теребить БД, вставляем просто удаление todoElement'а из DOM-дерева
-    // await loadData();
-    todoElement.remove();
-    
+    // await loadData();  
     return true;
   } catch (error) {
     console.error("Ошибка удаления выполенных задач:", error.message);
