@@ -12,7 +12,7 @@ export const getUserInfo = () => {
       if (user) {
         try {
           const token = await user.getIdToken();
-          resolve({ uid: user.uid, token });
+          resolve({ uid: user.uid, token, emailVerified: user.emailVerified });
         } catch (error) {
           reject(new Error("Не удалось получить token"));
         }

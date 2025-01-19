@@ -31,6 +31,9 @@
       <button type="submit" class="form-button submit">
         Зарегистрироваться
       </button>
+      <button id="google-sign-button" type="button" class="forget-button">
+        Войти через Google
+      </button>
       <button id="signIn" type="button" class="form-button secondary">
         Войти
       </button>
@@ -53,7 +56,22 @@
         required
       />
       <button type="submit" class="form-button submit">Войти</button>
+      <button type="button" id="google-sign-button">Продолжить с Google</button>
+      <button id="forgot-password-button" type="button" class="form-button secondary">
+        Забыли пароль?
+      </button>
     </form>
+    <form id="forgot-password-form">
+      <input
+        type="email"
+        id="forgot-password-email"
+        placeholder="Введите ваш email"
+        class="form-input"
+        required
+      />
+      <button type="submit" class="form-button submit">Отправить ссылку для сброса пароля</button>
+    </form>
+    <div id="forgot-password-message"></div>
     <div id="task-container">
       <div class="input-block">
         <input type="text" id="task-input" placeholder="Введите задачу" />
@@ -66,6 +84,7 @@
       <button id="delete-completed-button">
         Удалить все выполненные задачи
       </button>
+      <button id="logoutButton" class="logout-button">Выйти</button>
     </div>
     <script src="./src/app.js" type="module"></script>
   </body>

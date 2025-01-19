@@ -1,4 +1,9 @@
-import { auth, createUserWithEmailAndPassword } from "../../firebaseConfig.js";
+import {
+  auth,
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "../../firebaseConfig.js";
+import { signInWithGoogle } from "./googleAuth.js"; // Импорт функции для Google
 
 const signupForm = document.getElementById("signup-form");
 const signinForm = document.getElementById("signin-form");
@@ -14,7 +19,6 @@ signupForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const email = document.getElementById("signup-email").value;
-
   const password = document.getElementById("signup-password").value;
 
   try {
@@ -27,7 +31,10 @@ signupForm.addEventListener("submit", async (event) => {
     const user = userCredential.user;
     console.log("Пользователь зарегистрирован", user.uid);
 
-    alert("Регистрация прошла успешно! Теперь вы можете войти.");
+    await sendEmailVerification(user);
+    alert(
+      "Регистрация прошла успешно! Письмо для верификации отправлено на ваш email."
+    );
     signupForm.reset();
     hideSignupForm();
     showSigninForm();
@@ -37,10 +44,12 @@ signupForm.addEventListener("submit", async (event) => {
   }
 });
 
-function hideSignupForm() {
+document.getElementById("google-sign-button").addEventListener("click", signInWithGoogle);
+
+export function hideSignupForm() {
   signupForm.style.display = "none";
 }
 
-function showSigninForm() {
-  signinForm.style.display = "block";
+export function showSigninForm() {
+  signinForm.style.display = "flex";
 }

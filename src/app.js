@@ -4,9 +4,22 @@ initAddTodo();
 initDeleteCompleted();
 
 const signupForm = document.getElementById("signup-form");
-const signinForm = document.getElementById("signin-form");
-const taskContainer = document.getElementById("task-container");
 
 signupForm.style.display = "display";
-signinForm.style.display = "none";
-taskContainer.style.display = "none";
+
+import { auth, onAuthStateChanged } from "./firebaseConfig.js";
+import { loadData } from "./components/index.js";
+import { hideSigninForm, showTasksBlock } from "./components/index.js";
+import { hideSignupForm } from "./components/index.js";
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log("Пользователь уже авторизован:", user.uid);
+    loadData(); // Загружаем данные для авторизованного пользователя
+    hideSigninForm(); // Скрываем форму входа
+    hideSignupForm();
+    showTasksBlock(); // Показываем блок с задачами
+  } else {
+    console.log("Пользователь не авторизован.");
+  }
+});
