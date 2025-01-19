@@ -1,9 +1,12 @@
 import { host } from "../host.js";
+import { getUserInfo } from "../../utils/authHelper.js";
 
 
 export async function updateTodo(id, newText) {
   try {
-    const response = await fetch(`${host}/${id}.json`, {
+    const { uid, token } = await getUserInfo();
+
+    const response = await fetch(`${host}/${uid}/${id}.json?auth=${token}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
