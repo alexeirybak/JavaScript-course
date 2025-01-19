@@ -52,17 +52,51 @@ body {
   }
 }
 
+/* Основные стили для заголовка */
+.app-title {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 3.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0;
+  color: transparent;
+  background: linear-gradient(45deg, #007bff, #00bfff, #00ffbf);
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradientShift 5s infinite alternate;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Анимация для градиента */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Эффект при наведении */
+.app-title:hover {
+  transform: scale(1.05); /* Увеличение при наведении */
+  transition: transform 0.3s ease; /* Плавный переход */
+}
+
 .input-block {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 10px;
+  width: 100%;
 }
 
 /* Контейнер для ввода задачи */
 #task-input {
-  width: 300px;
+  width: 100%;
   padding: 12px;
   border: 2px solid #ddd;
   border-radius: 8px;
@@ -126,26 +160,56 @@ body {
 }
 
 /* Контейнер для задач */
+#task-container {
+  width: 100%;
+}
 #posts-container {
   width: 100%;
-  max-width: 600px;
+  max-width: 1200px;
   margin-top: 20px;
 }
 
 /* Стили для каждой задачи */
 .todo {
-  background: white;
+  background: #fff;
   border: 1px solid #ddd;
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 16px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  cursor: grab;
+  position: relative;
+  padding-left: 50px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+}
+
+.todo.over {
+  border: 2px dashed #007bff;
+  background-color: #e9f5ff;
+}
+
+/* Иконка для перетаскивания */
+.todo::before {
+  content: "⠿⠿";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #888;
+  cursor: grab;
 }
 
 .todo:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  transform: translateY(-4px);
+  transform: translateY(-2px);
+}
+
+.todo:active::before {
+  cursor: grabbing;
 }
 
 .todo p {
@@ -174,9 +238,11 @@ body {
 
 /* Кнопки внутри задачи */
 .button-function {
+  width: 40px;
   border: none;
+  border-radius: 6px;
   margin-right: 8px;
-  padding: 8px 16px;
+  padding: 8px 8px;
   background-color: #f0f0f0;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -187,13 +253,12 @@ body {
 }
 
 .todo.dragging {
-  opacity: 0.4;
-  background-color: #f0f0f0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0.6;
+  transform: scale(0.98);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #f8f9fa;
 }
-.todo {
-  transition: all 0.3s;
-}
+
 /*Стили для форм*/
 .form-container {
   background: #ffffff;
