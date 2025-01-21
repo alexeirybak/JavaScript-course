@@ -54,8 +54,13 @@ signinForm.addEventListener("submit", async (event) => {
     showTasksBlock();
     loadData();
   } catch (error) {
-    console.error("Ошибка авторизации: ", error.message, error.code);
-    // alert(`Ошибка авторизации: ${error.message}`);
+    if (error.code === "auth/email-already-in-use") {
+      showWarning(
+        "Это email уже зарегистрирован. Пожалуйста, войдите в систему"
+      );
+    }
+    console.error("Ошибка регистрации: ", error.message, error.code);
+    showError(`Ошибка регистрации`);
   }
 });
 

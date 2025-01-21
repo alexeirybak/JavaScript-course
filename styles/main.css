@@ -289,10 +289,12 @@ body {
 /*Стили для форм*/
 #signin-form {
   display: none;
+  flex-direction: column;
 }
 
 #signup-form {
   display: flex;
+  flex-direction: column;
 }
 
 .form-container {

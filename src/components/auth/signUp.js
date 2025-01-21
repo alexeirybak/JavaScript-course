@@ -46,7 +46,7 @@ signupForm.addEventListener("submit", async (event) => {
       showWarning("Это email уже зарегистрирован. Пожалуйста, войдите в систему")
     }
     console.error("Ошибка регистрации: ", error.message, error.code);
-    //showError(`Ошибка регистрации`);
+    showError(`Ошибка регистрации`);
   }
 });
 
@@ -55,5 +55,5 @@ export function hideSignupForm() {
 }
 
 export function showSigninForm() {
-  signinForm.style.display = "block";
+  signinForm.style.display = "flex";
 }

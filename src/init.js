@@ -24,7 +24,7 @@ export function initApp() {
       showTasksBlock();
     } else {
       console.log("Пользователь не авторизован");
-      document.getElementById("signup-form").style.display = "block";
+      document.getElementById("signup-form").style.display = "flex";
     }
   });
 
