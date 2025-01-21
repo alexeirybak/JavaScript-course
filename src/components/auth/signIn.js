@@ -60,7 +60,7 @@ signinForm.addEventListener("submit", async (event) => {
       );
     }
     console.error("Ошибка регистрации: ", error.message, error.code);
-    showError(`Ошибка регистрации`);
+    //showError(`Ошибка регистрации`);
   }
 });
 
