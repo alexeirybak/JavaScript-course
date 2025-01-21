@@ -1,4 +1,4 @@
-import { showError } from "../../utils/helpers.js";
+import { showError } from "../../utils/notification.js";
 import { addTodo } from "../../API/index.js";
 import { loadData } from "../index.js";
 

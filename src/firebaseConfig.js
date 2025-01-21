@@ -5,7 +5,13 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  signOut,
+  sendEmailVerification,
+  signInWithPopup,
+  GoogleAuthProvider,
+  sendPasswordResetEmail,
 } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyBuQySOMtbeEdioaW7wovKB26II5TM0pkE",
   authDomain: "todo-170125.firebaseapp.com",
@@ -28,4 +34,9 @@ export {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  signOut,
+  sendEmailVerification,
+  signInWithPopup,
+  GoogleAuthProvider,
+  sendPasswordResetEmail,
 };

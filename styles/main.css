@@ -159,9 +159,32 @@ body {
   transform: translateY(0);
 }
 
+#google-signup-button,
+#google-signin-button {
+  height: 48px;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  background-color: #f0f0f0;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  background-image: url("./../assets/icons/icons-google.png");
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+#google-signup-button:hover,
+#google-signin-button:hover {
+  background-color: #d6d6d6;
+}
+
 /* Контейнер для задач */
 #task-container {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 #posts-container {
   width: 100%;
@@ -259,7 +282,16 @@ body {
   background-color: #f8f9fa;
 }
 
+#task-container {
+  display: none;
+}
+
 /*Стили для форм*/
+#signin-form,
+#signup-form {
+  display: none;
+}
+
 .form-container {
   background: #ffffff;
   padding: 2rem;
@@ -318,4 +350,27 @@ body {
 
 .form-button.secondary:hover {
   background-color: #5a6268;
+}
+
+#forgot-password-form {
+  display: none;
+  flex-direction: column;
+}
+
+.logout-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #0056b3;
 }

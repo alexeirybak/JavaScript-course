@@ -1,8 +1,16 @@
-import { auth, createUserWithEmailAndPassword } from "../../firebaseConfig.js";
-
+import {
+  auth,
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "../../firebaseConfig.js";
+import { signWithGoogle } from "./googleAuth.js";
+import { showSuccess, showError, showWarning } from "../../utils/notification.js";
 const signupForm = document.getElementById("signup-form");
 const signinForm = document.getElementById("signin-form");
 const signInButton = document.getElementById("signIn");
+
+const googleButton = document.getElementById("google-signup-button");
+googleButton.addEventListener("click", signWithGoogle);
 
 signInButton.addEventListener("click", (event) => {
   event.preventDefault();
@@ -25,22 +33,27 @@ signupForm.addEventListener("submit", async (event) => {
     );
 
     const user = userCredential.user;
-    console.log("Пользователь зарегистрирован", user.uid);
+    await sendEmailVerification(user);
 
-    alert("Регистрация прошла успешно! Теперь вы можете войти.");
+    showSuccess(
+      "Для входа необходимо верифицировать email. Пожалуйста,проверьте свою почту"
+    );
     signupForm.reset();
     hideSignupForm();
     showSigninForm();
   } catch (error) {
+    if (error.code === 'auth/email-already-in-use') {
+      showWarning("Это email уже зарегистрирован. Пожалуйста, войдите в систему")
+    }
     console.error("Ошибка регистрации: ", error.message, error.code);
-    alert(`Ошибка регистрации: ${error.message}`);
+    showError(`Ошибка регистрации`);
   }
 });
 
-function hideSignupForm() {
+export function hideSignupForm() {
   signupForm.style.display = "none";
 }
 
-function showSigninForm() {
+export function showSigninForm() {
   signinForm.style.display = "block";
 }
