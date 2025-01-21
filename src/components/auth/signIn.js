@@ -55,7 +55,7 @@ signinForm.addEventListener("submit", async (event) => {
     loadData();
   } catch (error) {
     console.error("Ошибка авторизации: ", error.message, error.code);
-    alert(`Ошибка авторизации: ${error.message}`);
+    // alert(`Ошибка авторизации: ${error.message}`);
   }
 });
 
