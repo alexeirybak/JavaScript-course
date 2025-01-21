@@ -287,9 +287,12 @@ body {
 }
 
 /*Стили для форм*/
-#signin-form,
-#signup-form {
+#signin-form {
   display: none;
+}
+
+#signup-form {
+  display: flex;
 }
 
 .form-container {
