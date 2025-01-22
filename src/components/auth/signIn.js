@@ -54,13 +54,20 @@ signinForm.addEventListener("submit", async (event) => {
     showTasksBlock();
     loadData();
   } catch (error) {
-    if (error.code === "auth/email-already-in-use") {
-      showWarning(
-        "Это email уже зарегистрирован. Пожалуйста, войдите в систему"
-      );
+    switch (error.code) {
+      case "auth/too-many-requests":
+        showWarning(
+          "Слишком много попыток входа. Пожалуйста, попробуйте позже"
+        );
+        break;
+      case "auth/invalid-credential":
+        showWarning("Неверные учетные данные. Проверьте email и пароль");
+        break;
+      
+      default:
+        showWarning("Ошибка авторизации:", error.message, error.code);
+        break;
     }
-    console.error("Ошибка регистрации: ", error.message, error.code);
-    //showError(`Ошибка регистрации`);
   }
 });
 

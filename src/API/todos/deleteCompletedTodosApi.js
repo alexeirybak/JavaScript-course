@@ -1,6 +1,5 @@
 import { host } from "../host.js";
 import { getUserInfo } from "../../utils/authHelper.js";
-import { loadData } from "../../components/index.js";
 
 export async function deleteCompletedTodos(container) {
   try {
@@ -36,7 +35,6 @@ export async function deleteCompletedTodos(container) {
 
     return true;
   } catch (error) {
-    console.error("Ошибка удаления выполенных задач:", error.message);
     throw error;
   }
 }

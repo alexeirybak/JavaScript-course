@@ -20,7 +20,6 @@ export async function updateTaskOrderOnServer(taskId, order) {
       );
     }
   } catch (error) {
-    console.error(`Ошибка обновления порядка задач:`, error.message);
     throw error;
   }
 }
