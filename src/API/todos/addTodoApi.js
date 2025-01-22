@@ -21,7 +21,6 @@ export async function addTodo(newTodo) {
     console.log("Задача добавлена");
     return await response.json();
   } catch (error) {
-    console.error(`Ошибка добавления:`, error.message);
     throw error;
   }
 }

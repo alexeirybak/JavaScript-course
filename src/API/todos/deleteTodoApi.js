@@ -17,7 +17,6 @@ export async function deleteTodo(id) {
 
     return true;
   } catch (error) {
-    console.error(`Ошибка удаления:`, error.message);
     throw error;
   }
 }
