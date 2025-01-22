@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>TODO APP</title>
+  </head>
+  <body>
+    <div id="overlay">
+      <div id="spinner"></div>
+    </div>
+    <h1 class="app-title">TODO App</h1>
+    <form id="signup-form" class="form-container">
+      <h2 class="form-title">Регистрация</h2>
+      <input
+        type="email"
+        id="signup-email"
+        class="form-input"
+        placeholder="Email"
+        required
+      />
+      <input
+        type="password"
+        id="signup-password"
+        class="form-input"
+        placeholder="Пароль"
+        required
+      />
+      <button type="submit" class="form-button submit">
+        Зарегистрироваться
+      </button>
+      <button id="signIn" type="button" class="form-button secondary">
+        Войти
+      </button>
+      <button id="google-signup-button">Войти через Google</button>
+    </form>
+
+    <form id="signin-form" class="form-container">
+      <h2 class="form-title">Авторизация</h2>
+      <input
+        type="email"
+        id="signin-email"
+        class="form-input"
+        placeholder="Email"
+        required
+      />
+      <input
+        type="password"
+        id="signin-password"
+        class="form-input"
+        placeholder="Пароль"
+        required
+      />
+      <button type="submit" class="form-button submit">Войти</button>
+      <button id="google-signin-button">Продолжить с Google</button>
+      <button
+        id="forgot-password-button"
+        type="button"
+        class="form-button secondary"
+      >
+        Забыли пароль?
+      </button>
+    </form>
+    <form id="forgot-password-form">
+      <input
+        type="email"
+        id="forgot-password-email"
+        class="form-input"
+        required
+      />
+      <button type="submit" class="form-button submit">Отправить ссылку для сброса пароля</button>
+    </form>
+    <div id="forgot-password-message"></div>
+    <div id="task-container">
+      <div class="input-block">
+        <input type="text" id="task-input" placeholder="Введите задачу" />
+        <button id="add-button">
+          <img src="./assets/icons/icon-add.png" class="icons" />
+        </button>
+      </div>
+
+      <div id="posts-container"></div>
+      <button id="delete-completed-button">
+        Удалить все выполненные задачи
+      </button>
+    </div>
+    <button id="logout-button" class="logout-button">Выйти</button>
+    <script src="./src/app.js" type="module"></script>
+  </body>
+</html>
