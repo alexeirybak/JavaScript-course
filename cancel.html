@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Отмена запроса Axios</title>
+  </head>
+  <body>
+    <button id="fetchButton">Получить данные погоды</button>
+    <button id="cancelButton">Отменить запрос</button>
+    <pre id="output"></pre>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      let abortController;
+
+      function fetchWeatherData(lat, lon) {
+        // Создаем новый AbortController
+        abortController = new AbortController();
+
+        // Отправляем запрос
+        axios({
+          url: "https://api.openweathermap.org/data/2.5/weather",
+          params: {
+            lat: lat,
+            lon: lon,
+            lang: "ru",
+            units: "metric",
+            appid: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", // Замените на ваш токен
+          },
+          signal: abortController.signal, // Передаем сигнал AbortController
+        })
+          .then((response) => {
+            document.getElementById("output").textContent = JSON.stringify(
+              response.data,
+              null,
+              2
+            );
+          })
+          .catch((error) => {
+            if (error.name === "AbortError") {
+              console.log("Запрос был отменен.");
+            } else {
+              console.log("Ошибка:", error);
+            }
+          });
+      }
+
+      document.getElementById("fetchButton").addEventListener("click", () => {
+        fetchWeatherData(45, 40); // Пример координат
+      });
+
+      document.getElementById("cancelButton").addEventListener("click", () => {
+        if (abortController) {
+          abortController.abort(); // Отменяем запрос
+          console.log("Запрос отменен пользователем.");
+        }
+      });
+    </script>
+  </body>
+</html>
