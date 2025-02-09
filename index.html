@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Прогресс загрузки и скачивания видео</title>
+  </head>
+  <body>
+    <input type="file" id="videoFile" accept="video/*" />
+    <button id="uploadButton">Загрузить видео</button>
+    <button id="cancelButton">Отменить запрос</button>
+    <h3>Прогресс загрузки</h3>
+    <div id="uploadProgressContainer">
+      <progress id="uploadProgress" value="0" max="100"></progress>
+      <span id="uploadPercentage">0%</span>
+    </div>
+    <h3>Прогресс скачивания</h3>
+
+    <div id="uploadProgressContainer">
+      <progress id="downloadProgress" value="0" max="100"></progress>
+      <span id="downloadPercentage">0%</span>
+    </div>
+
+    <div id="output"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
