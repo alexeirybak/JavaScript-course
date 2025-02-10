@@ -1,13 +1,51 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Простой проект</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Маски</title>
   </head>
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      width: 320px;
+    }
+    label {
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
   <body>
-    <div id="block"></div>
+    <form autocomplete="off" id="myForm">
+      <label>
+        Имя:
+        <input type="text" id="firstName" />
+      </label>
+      <label>
+        Фамилия:
+        <input type="text" id="lastName" />
+      </label>
+      <label>
+        Возраст:
+        <input type="text" id="age" />
+      </label>
+      <label>
+        Электронная почта:
+        <input type="text" id="email" required/>
+      </label>
+      <label>
+        Номер телефона:
+        <input type="text" id="phone" />
+      </label>
+      <label>
+        Дата:
+        <input type="text" id="date" />
+      </label>
+      <button type="submit">Отправить</button>
+    </form>
+    <script src="https://unpkg.com/imask"></script>
     <script src="script.js"></script>
   </body>
 </html>
