@@ -1,51 +1,51 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Маски</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moveTo/1.8.2/moveTo.min.js"></script>
+
+    <title>MoveTo</title>
   </head>
-  <style>
-    form {
-      display: flex;
-      flex-direction: column;
-      row-gap: 20px;
-      width: 320px;
-    }
-    label {
-      display: flex;
-      justify-content: space-between;
-    }
-  </style>
+
   <body>
-    <form autocomplete="off" id="myForm">
-      <label>
-        Имя:
-        <input type="text" id="firstName" />
-      </label>
-      <label>
-        Фамилия:
-        <input type="text" id="lastName" />
-      </label>
-      <label>
-        Возраст:
-        <input type="text" id="age" />
-      </label>
-      <label>
-        Электронная почта:
-        <input type="text" id="email" required/>
-      </label>
-      <label>
-        Номер телефона:
-        <input type="text" id="phone" />
-      </label>
-      <label>
-        Дата:
-        <input type="text" id="date" />
-      </label>
-      <button type="submit">Отправить</button>
-    </form>
-    <script src="https://unpkg.com/imask"></script>
+    <header id="top">
+      <h1>Привет</h1>
+      <div>
+        <button data-target="#about-us" data-mt-duration="1500">О нас</button>
+        <button data-target="#contacts" data-mt-duration="3000">
+          Контакты
+        </button>
+        <a href="#">Наша команда</a>
+      </div>
+    </header>
+
+    <section id="about-us">
+      <h2>О нас</h2>
+    </section>
+    <section id="persons">
+      <h2>Наша команда</h2>
+      <button>К отзывам</button>
+    </section>
+
+    <section id="contacts">
+      <h2>Контакты</h2>
+      <button data-target="#top">Наверх</button>
+    </section>
+    <section class="scroll-container">
+      <h2>Тарифы</h2>
+      <div id="section1" class="block" style="background: lightblue">Free</div>
+      <div id="section2" class="block" style="background: lightcoral">
+        Light
+      </div>
+      <div id="section3" class="block" style="background: lightgreen">
+        Premium
+      </div>
+      <a href="#" class="scroll-link">К тарифам</a>
+    </section>
+
     <script src="script.js"></script>
   </body>
 </html>
