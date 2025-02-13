@@ -11,17 +11,18 @@ header {
   color: #123c69;
   flex-direction: column;
 }
-
+ 
 header div {
   display: flex;
   flex-direction: row;
   column-gap: 2rem;
 }
-
-h1, h2 {
+ 
+h1,
+h2 {
   margin: 1rem 0;
 }
-
+ 
 header,
 section {
   padding: 4rem 1rem;
@@ -32,23 +33,24 @@ section {
   justify-content: center;
   align-items: center;
 }
-
+ 
 #contacts {
   background-color: #123c69;
   color: #fff;
 }
-
+ 
 #about-us {
   background-color: #ac3b61;
   color: #fff;
 }
-
+ 
 a,
 button {
   color: #fff;
   background-color: #ac3b61;
   border: none;
   padding: 1rem 1.2rem;
+  margin-top: 20px;
   text-transform: uppercase;
   outline: none;
   cursor: pointer;
@@ -76,15 +78,4 @@ button:hover {
 }
 .scroll-link {
   margin: 0 auto;
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-.fade-in-animation {
-  animation: fadeIn 1s ease-in-out;
 }

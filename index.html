@@ -2,23 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moveTo/1.8.2/moveTo.min.js"></script>
-
-    <title>MoveTo</title>
+    <script src="https://afarkas.github.io/lazysizes/lazysizes.min.js"></script>
+    <title>Lazy Loading</title>
   </head>
 
   <body>
     <header id="top">
       <h1>Привет</h1>
-      <div>
-        <button data-target="#about-us" data-mt-duration="1500">О нас</button>
-        <button data-target="#contacts" data-mt-duration="3000">
-          Контакты
-        </button>
-        <a href="#">Наша команда</a>
+      <div class="actions">
+        <button data-target="#about-us">О нас</button>
+        <button data-target="#contacts">Контакты</button>
+        <a href="#persons">Наша команда</a>
       </div>
     </header>
 
@@ -27,23 +23,29 @@
     </section>
     <section id="persons">
       <h2>Наша команда</h2>
+      <img
+        data-src="https://krk.ooo/upload/iblock/412/vixiatt7to1fdh8xuyhm4su3vwlqh64j.jpg"
+        data-expand="-110"
+        alt="Наша команда"
+        class="lazyload blur-up"
+        width="800px"
+        height="533px"
+      />
       <button>К отзывам</button>
     </section>
 
     <section id="contacts">
-      <h2>Контакты</h2>
-      <button data-target="#top">Наверх</button>
-    </section>
-    <section class="scroll-container">
-      <h2>Тарифы</h2>
-      <div id="section1" class="block" style="background: lightblue">Free</div>
-      <div id="section2" class="block" style="background: lightcoral">
-        Light
+      <div>
+        <h2>Контакты</h2>
+        <iframe
+        data-src="https://geotree.ru/?lat=64.56890&lon=39.81890&z=10&c="
+          frameborder="0"
+          class="lazyload"
+          width="800px"
+          height="500px"
+        ></iframe>
+        <button>Наверх</button>
       </div>
-      <div id="section3" class="block" style="background: lightgreen">
-        Premium
-      </div>
-      <a href="#" class="scroll-link">К тарифам</a>
     </section>
 
     <script src="script.js"></script>
