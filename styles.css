@@ -11,18 +11,18 @@ header {
   color: #123c69;
   flex-direction: column;
 }
- 
+
 header div {
   display: flex;
   flex-direction: row;
   column-gap: 2rem;
 }
- 
+
 h1,
 h2 {
   margin: 1rem 0;
 }
- 
+
 header,
 section {
   padding: 4rem 1rem;
@@ -33,17 +33,20 @@ section {
   justify-content: center;
   align-items: center;
 }
- 
+
 #contacts {
   background-color: #123c69;
   color: #fff;
 }
- 
+
 #about-us {
   background-color: #ac3b61;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
- 
+
 a,
 button {
   color: #fff;
@@ -78,4 +81,45 @@ button:hover {
 }
 .scroll-link {
   margin: 0 auto;
+}
+
+.blur-up-right,
+.blur-up-left {
+  -webkit-filter: blur(5px) grayscale(100%);
+  filter: blur(5px) grayscale(100%);
+  transition: filter 400ms, -webkit-filter 400ms, grayscale 600ms;
+}
+
+.blur-up-right.lazyloaded {
+  -webkit-filter: blur(0) grayscale(0%);
+  filter: blur(0) grayscale(0%);
+  animation: slideInFromRight 1.5s;
+}
+
+.blur-up-left.lazyloaded {
+  -webkit-filter: blur(0) grayscale(0%);
+  filter: blur(0) grayscale(0%);
+  animation: slideInFromLeft 1.5s;
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
