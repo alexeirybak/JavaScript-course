@@ -1,46 +1,16 @@
-const easeFunctions = {
-  easeInQuad: function (t, b, c, d) {
-    t /= d;
-    return c * t * t + b;
-  },
-  easeOutQuad: function (t, b, c, d) {
-    t /= d;
-    return -c * t * (t - 2) + b;
-  },
-};
+const imgs = document.querySelectorAll("img, iframe");
 
-const moveTo = new MoveTo(
-  { duration: 1000, easing: "easeInQuad" },
-  easeFunctions
-);
-
-const buttons = document.querySelectorAll("button");
-
-buttons.forEach((btn) => moveTo.registerTrigger(btn));
-
-const link = document.querySelector("a");
-
-link.addEventListener("click", (e) => {
-  e.preventDefault();
-  const target = document.getElementById("persons");
-  moveTo.move(target, {
-    duration: 1000,
-  });
-});
-
-const moveInBlock = new MoveTo();
-
-const linkInBlock = document.querySelector(".scroll-link");
-const scrollContainer = document.querySelector(".scroll-container");
-
-linkInBlock.addEventListener("click", (e) => {
-  e.preventDefault();
-  const target = document.getElementById("section1");
-  moveInBlock.move(target, {
-    duration: 300,
-    container: scrollContainer,
-    callback: (target) => {
-      target.classList.add("fade-in-animation");
-    },
-  });
+imgs.forEach((img, index) => {
+  img.classList.add("lazyload");
+  const src = img.getAttribute("src");
+  img.setAttribute("data-src", src);
+  img.removeAttribute("src");
+  img.style.width = "500px";
+  img.style.height = "300px";
+  img.setAttribute("data-expand", "-100");
+  if (index % 2 === 0) {
+    img.classList.add("blur-up-right");
+  } else {
+    img.classList.add("blur-up-left");
+  }
 });

@@ -18,7 +18,8 @@ header div {
   column-gap: 2rem;
 }
 
-h1, h2 {
+h1,
+h2 {
   margin: 1rem 0;
 }
 
@@ -41,6 +42,9 @@ section {
 #about-us {
   background-color: #ac3b61;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 a,
@@ -49,6 +53,7 @@ button {
   background-color: #ac3b61;
   border: none;
   padding: 1rem 1.2rem;
+  margin-top: 20px;
   text-transform: uppercase;
   outline: none;
   cursor: pointer;
@@ -77,14 +82,44 @@ button:hover {
 .scroll-link {
   margin: 0 auto;
 }
-@keyframes fadeIn {
-  from {
+
+.blur-up-right,
+.blur-up-left {
+  -webkit-filter: blur(5px) grayscale(100%);
+  filter: blur(5px) grayscale(100%);
+  transition: filter 400ms, -webkit-filter 400ms, grayscale 600ms;
+}
+
+.blur-up-right.lazyloaded {
+  -webkit-filter: blur(0) grayscale(0%);
+  filter: blur(0) grayscale(0%);
+  animation: slideInFromRight 1.5s;
+}
+
+.blur-up-left.lazyloaded {
+  -webkit-filter: blur(0) grayscale(0%);
+  filter: blur(0) grayscale(0%);
+  animation: slideInFromLeft 1.5s;
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
     opacity: 0;
   }
-  to {
+  100% {
+    transform: translateX(0);
     opacity: 1;
   }
 }
-.fade-in-animation {
-  animation: fadeIn 1s ease-in-out;
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
