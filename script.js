@@ -18,7 +18,7 @@ function handleClick() {
       color: "#ff5722",
       rotate: "360deg",
       scale: 1.5,
-      duration: 1000,
+      duration: 1100,
       easing: "easeInOutQuad",
     });
   } else {
