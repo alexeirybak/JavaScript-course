@@ -1,16 +1,41 @@
-const imgs = document.querySelectorAll("img, iframe");
+const toggler = document.getElementById("toggler");
 
-imgs.forEach((img, index) => {
-  img.classList.add("lazyload");
-  const src = img.getAttribute("src");
-  img.setAttribute("data-src", src);
-  img.removeAttribute("src");
-  img.style.width = "500px";
-  img.style.height = "300px";
-  img.setAttribute("data-expand", "-100");
-  if (index % 2 === 0) {
-    img.classList.add("blur-up-right");
+const form = document.querySelector("form");
+
+toggler.addEventListener("click", handleClick);
+
+function handleClick() {
+  if (form.style.opacity === "0") {
+    anime({
+      targets: ".reg-form",
+      opacity: 1,
+      height: form.scrollHeight,
+      duration: 1000,
+      easing: "easeInOutQuad",
+    });
+    anime({
+      targets: toggler,
+      color: "#ff5722",
+      rotate: "360deg",
+      scale: 1.5,
+      duration: 1100,
+      easing: "easeInOutQuad",
+    });
   } else {
-    img.classList.add("blur-up-left");
+    anime({
+      targets: form,
+      opacity: 0,
+      height: 0,
+      duration: 1000,
+      easing: "easeOutExpo",
+    });
+    anime({
+      targets: toggler,
+      color: "#123c69",
+      rotate: "0deg",
+      scale: 1,
+      duration: 1000,
+      easing: "easeInOutQuad",
+    });
   }
-});
+}
