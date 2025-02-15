@@ -2,51 +2,42 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://afarkas.github.io/lazysizes/lazysizes.min.js"></script>
-    <title>Lazy Loading</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <title>Anime.js</title>
   </head>
 
   <body>
-    <header id="top">
-      <h1>Привет</h1>
-      <div class="actions">
-        <button data-target="#about-us">О нас</button>
-        <button data-target="#contacts">Контакты</button>
-        <a href="#persons">Наша команда</a>
-      </div>
+    <header>
+      <h1 id="toggler">Регистрация</h1>
+      <form autocomplete="off" class="reg-form">
+        <div>
+          <label for="firstName"
+            ><input type="text" placeholder="Имя" autocomplete="off"
+          /></label>
+          <label for="lastName"
+            ><input type="text" placeholder="Фамилия" autocomplete="off"
+          /></label>
+          <label for="email"
+            ><input type="email" placeholder="E-mail" autocomplete="off"
+          /></label>
+          <label for="password"
+            ><input
+              type="password"
+              placeholder="Пароль"
+              autocomplete="new-password"
+          /></label>
+          <label for="repeatPassword"
+            ><input
+              type="password"
+              placeholder="Повторите пароль"
+              autocomplete="new-password"
+          /></label>
+        </div>
+      </form>
     </header>
-
-    <section id="about-us">
-      <h2>О нас</h2>
-      <img src="imgs/img1.jpg" alt="Рисунок 1" />
-      <img src="imgs/img2.jpg" alt="Рисунок 2" />
-      <img src="imgs/img3.jpg" alt="Рисунок 3" />
-      <img src="imgs/img4.jpg" alt="Рисунок 4" />
-    </section>
-    <section id="persons">
-      <h2>Наша команда</h2>
-      <img
-        src="https://krk.ooo/upload/iblock/412/vixiatt7to1fdh8xuyhm4su3vwlqh64j.jpg"
-        alt="Наша команда"
-      />
-      <button>К отзывам</button>
-    </section>
-
-    <section id="contacts">
-      <div>
-        <h2>Контакты</h2>
-        <iframe
-          src="https://geotree.ru/?lat=64.56890&lon=39.81890&z=10&c="
-          frameborder="0"
-          width="800px"
-          height="500px"
-        ></iframe>
-        <button>Наверх</button>
-      </div>
-    </section>
-
     <script src="script.js"></script>
   </body>
 </html>
