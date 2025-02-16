@@ -1,41 +1,38 @@
-const toggler = document.getElementById("toggler");
+const dog1 = {
+  name: "Шарик",
+  breed: "корги",
+  weight: 7,
+  bark() {
+    console.log(`${this.name} лает: Гав!`);
+  },
+  increaseWeight() {
+    console.log(this.weight + 1);
+  },
+  decreaseWeight() {
+    console.log(this.weight - 1);
+  },
+};
 
-const form = document.querySelector("form");
+const dog2 = {
+  name: "Бобик",
+  breed: "шпиц",
+  weight: 5,
+  bark() {
+    console.log(`${this.name} лает: Тяв!`);
+  },
+  increaseWeight() {
+    console.log(this.weight + 1);
+  },
+  decreaseWeight() {
+    console.log(this.weight - 1);
+  },
+};
 
-toggler.addEventListener("click", handleClick);
+dog1.bark();
+dog2.bark();
 
-function handleClick() {
-  if (form.style.opacity === "0") {
-    anime({
-      targets: ".reg-form",
-      opacity: 1,
-      height: form.scrollHeight,
-      duration: 1000,
-      easing: "easeInOutQuad",
-    });
-    anime({
-      targets: toggler,
-      color: "#ff5722",
-      rotate: "360deg",
-      scale: 1.5,
-      duration: 1100,
-      easing: "easeInOutQuad",
-    });
-  } else {
-    anime({
-      targets: form,
-      opacity: 0,
-      height: 0,
-      duration: 1000,
-      easing: "easeOutExpo",
-    });
-    anime({
-      targets: toggler,
-      color: "#123c69",
-      rotate: "0deg",
-      scale: 1,
-      duration: 1000,
-      easing: "easeInOutQuad",
-    });
-  }
-}
+dog1.increaseWeight();
+dog2.increaseWeight();
+
+dog1.decreaseWeight();
+dog2.decreaseWeight();
