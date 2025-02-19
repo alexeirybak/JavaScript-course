@@ -1,28 +1,40 @@
-const img = document.createElement('img');
-img.src = 'img/image.png';
-img.alt = 'Рисунок';
+class Dog {
+  constructor(name, breed, weight = 3) {
+    this.name = name;
+    this.breed = breed;
+    this.weight = weight;
+  }
 
-document.body.append(img);
+  increaseWeight(amount = 1) {
+    this.weight += amount;
+    console.log(this.weight);
+  }
 
-const block = document.getElementById('block');
-const heading = document.createElement('h1');
-heading.innerText = 'Привет, разработчики!';
-heading.classList.add('heading');
-block.append(heading);
-
-let a = 5;
-let b = 5;
-
-if (a == b) {
-  let c = a + b;
-  console.log(c);
+  decreaseWeight(amount = 1) {
+    this.weight -= amount;
+    console.log(this.weight);
+  }
 }
 
-const initialArray = [];
+class HuntingDog extends Dog {
+  constructor(name, breed, weight = 10, isTrained = false) {
+    super(name, breed, weight);
+    this.isTrained = isTrained;
+  }
 
-const getArray = () => {
-  const array = initialArray.push[1];
-  console.log(array);
-};
+  duckHunt() {
+    this.increaseWeight(0.5);
+    this.isTrained = true;
+    console.log(`${this.name} поймал утку! Теперь он дрессированный!`);
+  }
+}
 
-getArray();
+const dog1 = new HuntingDog("Бим", "лайка", 20);
+
+console.log(dog1.hasOwnProperty("name")); // true
+console.log(dog1.hasOwnProperty("isTrained")); // true
+
+const dog2 = new Dog("Шарик", "корги", 7);
+
+console.log(dog1);
+console.log(dog2);
